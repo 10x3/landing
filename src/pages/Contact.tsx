@@ -94,15 +94,16 @@ function EarlyAccessPanel() {
         </div>
         <p className="mt-3 max-w-md text-ink-400 leading-relaxed">{panel.sub}</p>
       </div>
-      <a
-        href="#request"
-        className="relative mt-10 inline-flex items-center gap-2 rounded-full bg-ink-100 text-ink-950 px-6 py-3 text-sm font-medium hover:bg-white transition-colors active:translate-y-[1px]"
+      <button
+        type="button"
+        onClick={() => openCalendly(panel.calendlyUrl)}
+        className="relative mt-10 inline-flex items-center gap-2 rounded-full bg-ink-100 text-ink-950 px-6 py-3 text-sm font-medium hover:bg-white transition-colors active:translate-y-[1px] cursor-pointer"
       >
         {panel.buttonLabel}
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M3 7h8m0 0L7 3m4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-      </a>
+      </button>
     </div>
   );
 }
@@ -182,4 +183,48 @@ function Field({
       )}
     </label>
   );
+}
+
+const CALENDLY_SCRIPT = "https://assets.calendly.com/assets/external/widget.js";
+const CALENDLY_CSS = "https://assets.calendly.com/assets/external/widget.css";
+let calendlyLoader: Promise<void> | null = null;
+
+function loadCalendly(): Promise<void> {
+  if (typeof window === "undefined") return Promise.resolve();
+  if (window.Calendly) return Promise.resolve();
+  if (calendlyLoader) return calendlyLoader;
+
+  calendlyLoader = new Promise<void>((resolve, reject) => {
+    if (!document.querySelector(`link[href="${CALENDLY_CSS}"]`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = CALENDLY_CSS;
+      document.head.appendChild(link);
+    }
+    const script = document.createElement("script");
+    script.src = CALENDLY_SCRIPT;
+    script.async = true;
+    script.onload = () => resolve();
+    script.onerror = () => {
+      calendlyLoader = null;
+      reject(new Error("Failed to load Calendly"));
+    };
+    document.body.appendChild(script);
+  });
+
+  return calendlyLoader;
+}
+
+function openCalendly(url: string) {
+  loadCalendly()
+    .then(() => window.Calendly?.initPopupWidget({ url }))
+    .catch(() => window.open(url, "_blank", "noopener,noreferrer"));
+}
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
 }

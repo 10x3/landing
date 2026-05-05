@@ -21,6 +21,7 @@ export const panel = {
   title: "Book a 15-minute intake call",
   sub: "Pick a slot that works. We'll confirm fit on the call and send a welcome the same day.",
   buttonLabel: "Open scheduler",
+  calendlyUrl: "https://calendly.com/naidiuk-peter/30min",
 };
 
 export const formCopy = {
