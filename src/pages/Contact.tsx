@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Container } from "../components/Container";
 import { Section, Eyebrow } from "../components/Section";
 import { hero, expectations, directLine, panel, formCopy } from "../content/contact";
@@ -108,7 +108,7 @@ function EarlyAccessPanel() {
 }
 
 function FallbackForm() {
-  const [sent, setSent] = useState(false);
+  const [state, handleSubmit] = useForm("meenkgkb");
   return (
     <div id="request" className="mt-20 pt-20 border-t border-hairline">
       <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">
@@ -119,29 +119,31 @@ function FallbackForm() {
         <br />
         <span className="text-ink-500">{formCopy.sub}</span>
       </h2>
-      {sent ? (
+      {state.succeeded ? (
         <div className="mt-10 rounded-[1.75rem] border border-accent-500/40 bg-accent-500/5 p-8 text-ink-100">
           {formCopy.sent}
         </div>
       ) : (
         <form
           className="mt-10 grid md:grid-cols-2 gap-5 max-w-3xl"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
+          onSubmit={handleSubmit}
         >
-          <Field label="Your name" name="name" />
-          <Field label="Email" name="email" type="email" />
+          <Field label="Your name" name="name" required />
+          <ValidationError prefix="Name" field="name" errors={state.errors} className="md:col-span-2 -mt-3 text-sm text-accent-400" />
+          <Field label="Email" name="email" type="email" required />
+          <ValidationError prefix="Email" field="email" errors={state.errors} className="md:col-span-2 -mt-3 text-sm text-accent-400" />
           <Field label="Company (optional)" name="company" className="md:col-span-2" />
           <Field label="What are you building?" name="building" textarea className="md:col-span-2" />
+          <ValidationError prefix="Building" field="building" errors={state.errors} className="md:col-span-2 -mt-3 text-sm text-accent-400" />
           <Field label="Biggest current blocker" name="blocker" textarea className="md:col-span-2" />
+          <ValidationError prefix="Blocker" field="blocker" errors={state.errors} className="md:col-span-2 -mt-3 text-sm text-accent-400" />
           <div className="md:col-span-2 flex justify-end">
             <button
               type="submit"
-              className="inline-flex items-center gap-2 rounded-full bg-ink-100 text-ink-950 px-6 py-3 text-sm font-medium hover:bg-white transition-colors active:translate-y-[1px]"
+              disabled={state.submitting}
+              className="inline-flex items-center gap-2 rounded-full bg-ink-100 text-ink-950 px-6 py-3 text-sm font-medium hover:bg-white transition-colors active:translate-y-[1px] disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {formCopy.submit}
+              {state.submitting ? "Sending…" : formCopy.submit}
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M3 7h8m0 0L7 3m4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -158,12 +160,14 @@ function Field({
   name,
   type = "text",
   textarea,
+  required,
   className = "",
 }: {
   label: string;
   name: string;
   type?: string;
   textarea?: boolean;
+  required?: boolean;
   className?: string;
 }) {
   const base =
@@ -172,9 +176,9 @@ function Field({
     <label className={`block ${className}`}>
       <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">{label}</span>
       {textarea ? (
-        <textarea name={name} rows={4} className={`mt-2 ${base}`} />
+        <textarea name={name} rows={4} required={required} className={`mt-2 ${base}`} />
       ) : (
-        <input name={name} type={type} className={`mt-2 ${base}`} />
+        <input name={name} type={type} required={required} className={`mt-2 ${base}`} />
       )}
     </label>
   );

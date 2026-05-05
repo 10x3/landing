@@ -10,28 +10,31 @@ import { Team } from "./pages/Team";
 import { Contact } from "./pages/Contact";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { NoiseLayer } from "./components/NoiseLayer";
+import { PasswordGate } from "./components/PasswordGate";
 
 function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <NoiseLayer />
-      <div className="relative min-h-screen flex flex-col bg-canvas text-ink-100">
-        <Nav />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/how-it-works" element={<HowItWorks />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/use-cases/new-product" element={<UseCaseNew />} />
-            <Route path="/use-cases/existing-codebase" element={<UseCaseExisting />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <PasswordGate>
+      <BrowserRouter>
+        <ScrollToTop />
+        <NoiseLayer />
+        <div className="relative min-h-screen flex flex-col bg-canvas text-ink-100">
+          <Nav />
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/how-it-works" element={<HowItWorks />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/use-cases/new-product" element={<UseCaseNew />} />
+              <Route path="/use-cases/existing-codebase" element={<UseCaseExisting />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </PasswordGate>
   );
 }
 
