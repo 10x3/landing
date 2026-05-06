@@ -7,7 +7,7 @@ import { PricingCard } from "../components/PricingCard";
 import { AudienceTabs } from "../components/AudienceTabs";
 import { ScrollSequence } from "../components/ScrollSequence";
 import { KineticMarquee } from "../components/KineticMarquee";
-import { hero, problems, pillars, promise, homeFaq, launchBadge, supportPromise } from "../content/home";
+import { hero, problems, pillars, promise, homeFaq, launchBadge, supportPromise, workEnvironmentBrief } from "../content/home";
 import { plans } from "../content/pricing";
 
 export function Home() {
@@ -17,6 +17,7 @@ export function Home() {
       <KineticMarquee />
       <ProblemPanel />
       <ScrollSequence />
+      <WorkEnvironmentStrip />
       <SupportPromise />
       <Pillars />
       <Audience />
@@ -158,6 +159,29 @@ function ProblemPanel() {
               {p.title}
             </div>
             <div className="md:col-span-6 text-ink-400 leading-relaxed md:pt-1">{p.body}</div>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function WorkEnvironmentStrip() {
+  return (
+    <Section tone="surface">
+      <div className="max-w-2xl">
+        <Eyebrow>{workEnvironmentBrief.eyebrow}</Eyebrow>
+        <h2 className="mt-4 font-sans text-3xl md:text-4xl font-semibold text-ink-100 tracking-[-0.025em] leading-[1.1]">
+          {workEnvironmentBrief.title}
+        </h2>
+      </div>
+      <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-0 border-t border-l border-hairline">
+        {workEnvironmentBrief.pillars.map((p) => (
+          <div key={p.title} className="p-5 border-r border-b border-hairline">
+            <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent-400">
+              {p.title}
+            </div>
+            <p className="mt-2 text-sm text-ink-300 leading-relaxed">{p.body}</p>
           </div>
         ))}
       </div>

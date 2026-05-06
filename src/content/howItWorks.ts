@@ -43,6 +43,29 @@ export const expandedSteps = [
   },
 ];
 
+export const workEnvironment = {
+  eyebrow: "How we work with you",
+  title: "We meet you where you already work.",
+  pillars: [
+    {
+      title: "Planning lives on our platform.",
+      body: "Roadmap, milestones, tasks, and progress all live in your dashboard. Nothing to install - open it in your browser. Share the link with anyone on your team.",
+    },
+    {
+      title: "Chat in your messenger.",
+      body: "Slack, Teams, Google Chat, or whatever your team already uses - we join your channel. No new app for anyone to learn.",
+    },
+    {
+      title: "Meetings on your tool.",
+      body: "Kickoff calls and check-ins happen on whatever you already use - Zoom, Google Meet, Teams, anything. We follow your setup, not ours.",
+    },
+    {
+      title: "Development, however you need.",
+      body: "We can run the whole thing for you, build alongside your team, or any setup in between. Your repo or ours. Your hosting or ours. Flexible end to end.",
+    },
+  ],
+};
+
 export const support = {
   eyebrow: "Core, not an add-on",
   title: "When something goes wrong, a real engineer steps in.",

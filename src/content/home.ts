@@ -55,6 +55,17 @@ export const howItWorksSteps = [
   },
 ];
 
+export const workEnvironmentBrief = {
+  eyebrow: "How we work with you",
+  title: "We meet you where you already work.",
+  pillars: [
+    { title: "Planning on our platform", body: "Roadmap and tasks in your dashboard." },
+    { title: "Chat in your messenger", body: "Slack, Teams, Google Chat - your call." },
+    { title: "Meetings on your tool", body: "Zoom, Meet, Teams - whatever you use." },
+    { title: "Flexible dev setup", body: "Done for you, with you, or any mix." },
+  ],
+};
+
 export const supportPromise = {
   eyebrow: "And when things go sideways",
   title: "A senior engineer is one message away.",
