@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function ScrollSequence() {
   const rootRef = useRef<HTMLDivElement>(null);
+  const stRef = useRef<ScrollTrigger | null>(null);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -25,7 +26,7 @@ export function ScrollSequence() {
         rail.dataset.active = i === 0 ? "true" : "false";
       });
 
-      ScrollTrigger.create({
+      stRef.current = ScrollTrigger.create({
         trigger: root,
         start: "top top",
         end: () => "+=" + window.innerHeight * (panels.length + 0.5),
@@ -51,8 +52,18 @@ export function ScrollSequence() {
       });
     }, root);
 
-    return () => ctx.revert();
+    return () => {
+      stRef.current = null;
+      ctx.revert();
+    };
   }, []);
+
+  const goToStep = (idx: number) => {
+    const st = stRef.current;
+    if (!st) return;
+    const target = st.start + ((idx + 0.5) / howItWorksSteps.length) * (st.end - st.start);
+    window.scrollTo({ top: target, behavior: "smooth" });
+  };
 
   return (
     <section className="relative bg-canvas-2 border-y border-hairline overflow-hidden">
@@ -66,19 +77,22 @@ export function ScrollSequence() {
               </span>
             </div>
             {howItWorksSteps.map((step, i) => (
-              <div
+              <button
                 key={step.n}
+                type="button"
+                onClick={() => goToStep(i)}
+                aria-label={`Jump to step ${step.n}: ${step.title}`}
                 data-rail-item
                 data-active={i === 0 ? "true" : "false"}
-                className="group py-3 border-l-2 pl-5 transition-all duration-300 data-[active=true]:border-accent-500 data-[active=false]:border-hairline"
+                className="group block w-full text-left py-3 border-l-2 pl-5 cursor-pointer transition-all duration-300 data-[active=true]:border-accent-500 data-[active=false]:border-hairline hover:data-[active=false]:border-accent-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas-2"
               >
-                <div className="font-mono text-xs text-ink-500 group-data-[active=true]:text-accent-400 transition-colors">
+                <div className="font-mono text-xs text-ink-500 group-data-[active=true]:text-accent-400 group-hover:text-accent-400/80 transition-colors">
                   {step.n}
                 </div>
-                <div className="mt-1 text-[15px] font-medium tracking-tight text-ink-400 group-data-[active=true]:text-ink-100 transition-colors">
+                <div className="mt-1 text-[15px] font-medium tracking-tight text-ink-400 group-data-[active=true]:text-ink-100 group-hover:text-ink-200 transition-colors">
                   {step.title}
                 </div>
-              </div>
+              </button>
             ))}
           </aside>
 
