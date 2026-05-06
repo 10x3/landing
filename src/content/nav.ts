@@ -1,5 +1,6 @@
 export const navLinks = [
   { label: "How it works", to: "/how-it-works" },
+  { label: "What to expect", to: "/what-to-expect" },
   { label: "Use cases", to: "/use-cases/new-product", children: [
     { label: "Build from scratch", to: "/use-cases/new-product" },
     { label: "Ship on existing codebase", to: "/use-cases/existing-codebase" },
