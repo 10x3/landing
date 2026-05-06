@@ -1,89 +1,56 @@
 export const intro = {
-  headline: "AI writes the code. Senior engineers make sure it ships.",
-  sub: "Here's how the worker, the platform, and the humans fit together - and what happens when any one of them hits a wall.",
+  eyebrow: "How it works",
+  headline: "Here's what working with us actually looks like.",
+  sub: "No jargon. No 200-page Statement of Work. Five steps, three buttons, and real people backing it all up.",
 };
 
-export const components = [
+export const templatesPreface = {
+  eyebrow: "Before step 1",
+  title: "You start on a solid technical foundation.",
+  body: "Your project doesn't begin with an empty repo. Our engineers have already built and hardened the technical setup - deployment pipeline, hosting, dev and production environments, security, monitoring, error tracking, automated testing, CI/CD - all wired up and ready. It's included in your subscription. You skip months of plumbing and start directly on building product.",
+};
+
+export const expandedSteps = [
   {
-    title: "The Worker",
-    sub: "Your isolated dev environment",
-    bullets: [
-      "Claude, our skill library, and your full project context - pre-loaded.",
-      "Installed from our battle-tested templates, or onto your existing repo via any git provider.",
-      "Runs on our infrastructure or yours - your code never leaves a repo you control.",
-      "Hardened environment: secrets isolated, dependencies pinned, deploys gated.",
-    ],
+    n: "01",
+    title: "Tell us about your project.",
+    short: "Share your idea, goals, and constraints. We turn it into a step-by-step roadmap, in plain English.",
+    detail: "We start with a kickoff call. You describe what you want to build and who it's for - in your own words. No technical vocabulary required. We turn that into a roadmap you can read end-to-end without help: clear milestones, what each one delivers, and roughly when it ships.",
   },
   {
-    title: "The Platform",
-    sub: "Where you plan and ship",
-    bullets: [
-      "Start a cycle - the worker returns a dependency-aware task plan from full project context.",
-      "Refine the plan in plain English. The worker updates dependencies and risks automatically.",
-      "Every finished task auto-ships to your live dev environment. See it working before you decide.",
-      "One click promotes to production. On Pro and above, every deploy path is configurable.",
-    ],
+    n: "02",
+    title: "Shape the roadmap to fit your business.",
+    short: "Reorder, reprioritize, cut what doesn't matter. The plan matches how your business works.",
+    detail: "Every milestone is editable. Move things around, change priorities, swap a feature for one your customers asked for, push a 'nice to have' to next quarter. We update the roadmap with you in real time until it matches what your business actually needs - not a generic template.",
   },
   {
-    title: "The Humans",
-    sub: "Your senior team in Slack",
-    bullets: [
-      "A dedicated team matched from our vetted network - same engineers through your whole engagement.",
-      "Senior review where it matters: the platform flags risky, complex, or load-bearing work for human eyes. Routine tasks ship without blocking.",
-      "Request human review on any task with one click - no negotiation, no waiting.",
-      "In Slack for product, tech, architecture, and business calls - not just code.",
-    ],
+    n: "03",
+    title: "Generate the development tasks.",
+    short: "One button turns your roadmap into a clean list of build-ready tasks.",
+    detail: "When the roadmap looks right, press the button. Each milestone breaks into specific, build-ready tasks - and you can review every one of them before development starts. Don't like a task? Edit it, reword it, or remove it. Nothing gets built that you haven't seen first.",
+  },
+  {
+    n: "04",
+    title: "Start development.",
+    short: "One button. Senior engineers and AI build on a foundation we've already set up.",
+    detail: "Press start and the work begins. Our AI worker writes the code; senior engineers review anything risky or load-bearing. Everything runs on the technical foundation we set up for you up front - hosting, security, deploys, monitoring already wired in. Your code stays yours, your environment is private. You can step away. You'll get updates as tasks finish.",
+  },
+  {
+    n: "05",
+    title: "See your product come to life.",
+    short: "One button opens your live product - the actual thing. Click around, try it, share it.",
+    detail: "Press the button and your product opens in a new tab - the real, working thing. Not a dashboard. Not a progress bar. The app itself, hosted on a live preview link you can click around and share with friends, investors, or your first beta users. Every finished task auto-deploys here within minutes. When you're ready to put it in front of real customers, one more button promotes it to production.",
   },
 ];
 
-export const fullCycle = [
-  { step: "Kick off a cycle", body: "Describe the outcome you want. Feature, bug, refactor - natural language." },
-  { step: "Plan returned", body: "Dependency-aware task list with risks, scope notes, and open questions." },
-  { step: "Edit the plan", body: "Dialog with the worker in plain English. It re-plans as you go." },
-  { step: "Approve & execute", body: "One click. The worker starts in your isolated environment." },
-  { step: "Execution in progress", body: "Real-time feed of diffs, tests, and decisions. Pause anytime." },
-  { step: "PR opened", body: "Small, reviewable PRs - not 4,000-line megabranches." },
-  { step: "Review routing", body: "Platform flags risky or load-bearing work for a senior. Routine work merges without blocking. You can request review on any task with one click." },
-  { step: "Live in dev", body: "Every merged task auto-ships to your dev environment. Click around, check it, catch regressions before prod." },
-  { step: "Promote to prod", body: "One click deploys to production. On Pro and above, every deployment path is configurable." },
-];
-
-export const workerKnows = [
-  "Your stack and framework versions",
-  "Your naming and file conventions",
-  "Your commit and PR style",
-  "Your CI rules and check gates",
-  "Your test patterns and coverage norms",
-  "Your design system tokens",
-  "Open issues and recent architectural decisions",
-  "Your security and secrets policy",
-];
-
-export const failureModes = [
-  {
-    when: "The worker suggests a wrong architecture.",
-    what: "A senior engineer flags it before execution starts. The plan is revised; nothing ships.",
-  },
-  {
-    when: "Scope expands mid-task.",
-    what: "The worker pauses and asks. You approve expansion or reshape the task - no runaway work.",
-  },
-  {
-    when: "A test fails in an area we don't have context for.",
-    what: "The worker surfaces the gap. A human fills in the context or calls you before patching.",
-  },
-  {
-    when: "You're stuck on a product or tech call.",
-    what: "Ping Slack. A senior engineer responds within business hours - faster on Pro and Enterprise.",
-  },
-];
-
-export const security = {
-  headline: "Your code stays yours",
+export const support = {
+  eyebrow: "Core, not an add-on",
+  title: "When something goes wrong, a real engineer steps in.",
+  body: "A roadmap that doesn't make sense. A result that looks off. A button that won't do what you expected. Send a message. A senior engineer - a real person, the same one who knows your project - replies in our shared channel and gets you unstuck. You are never alone with a half-built product.",
   bullets: [
-    "Code lives in your repository - we work against it, we don't copy it out.",
-    "One isolated worker per client. No shared environments, no cross-project leakage.",
-    "NDAs signed before the first call. Access logs on request.",
-    "SOC 2 Type II posture on the roadmap - contact us for the current status.",
+    "The same engineer who set up your foundation knows your code end to end.",
+    "Reachable in our shared channel - no tickets, no queue, no escalation paths.",
+    "Included on every plan. Not a premium tier, not metered.",
+    "Senior judgment for product, technical, and business calls - not just bug fixes.",
   ],
 };

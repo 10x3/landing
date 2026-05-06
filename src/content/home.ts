@@ -30,20 +30,37 @@ export const problems = [
 export const howItWorksSteps = [
   {
     n: "01",
-    title: "Install the worker",
-    body: "We set up your isolated dev environment, templates, CI/CD, and Slack channel in 48 hours. Claude, skills, and full project context loaded.",
+    title: "Tell us about your project.",
+    body: "Share your idea, goals, and constraints. We turn it into a step-by-step roadmap, written in plain English you can actually read.",
   },
   {
     n: "02",
-    title: "Plan the cycle",
-    body: "Tell the worker what you want. It returns a dependency-aware task plan. Refine it in chat - plain English, no ticket syntax.",
+    title: "Shape the roadmap to fit your business.",
+    body: "Walk through every milestone with us. Reorder, re-prioritize, cut what doesn't matter. The plan should match how your business works - not a generic template.",
   },
   {
     n: "03",
-    title: "See it live",
-    body: "Every finished task ships to your dev environment automatically. Click around, poke at it, promote to production with one button when you're ready.",
+    title: "Generate the development tasks.",
+    body: "One button. Your roadmap becomes a clean list of build-ready tasks. You can review and tweak them before a single line of code is written.",
+  },
+  {
+    n: "04",
+    title: "Start development.",
+    body: "One button. Senior engineers and AI start building on top of a battle-tested technical foundation we've already set up for you - hosting, deploys, security, monitoring, all included. You can step away. We'll keep you posted.",
+  },
+  {
+    n: "05",
+    title: "See your product come to life.",
+    body: "One button opens your live product - the actual thing, not a dashboard or status report. Click around, try it, share it. When it's ready, press one more button to put it in front of real customers.",
   },
 ];
+
+export const supportPromise = {
+  eyebrow: "And when things go sideways",
+  title: "A senior engineer is one message away.",
+  body: "AI moves fast - but it doesn't always get things right. When a result looks off, a roadmap doesn't make sense, or you're just stuck, send a message. A senior engineer - the same real person who knows your project - replies in our shared channel and gets you unstuck. Included on every plan, not a paid add-on.",
+  link: { label: "See how it all works", to: "/how-it-works" },
+};
 
 export const pillars = [
   {

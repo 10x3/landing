@@ -7,7 +7,7 @@ import { PricingCard } from "../components/PricingCard";
 import { AudienceTabs } from "../components/AudienceTabs";
 import { ScrollSequence } from "../components/ScrollSequence";
 import { KineticMarquee } from "../components/KineticMarquee";
-import { hero, problems, pillars, promise, homeFaq, launchBadge } from "../content/home";
+import { hero, problems, pillars, promise, homeFaq, launchBadge, supportPromise } from "../content/home";
 import { plans } from "../content/pricing";
 
 export function Home() {
@@ -17,6 +17,7 @@ export function Home() {
       <KineticMarquee />
       <ProblemPanel />
       <ScrollSequence />
+      <SupportPromise />
       <Pillars />
       <Audience />
       <Promise />
@@ -159,6 +160,33 @@ function ProblemPanel() {
             <div className="md:col-span-6 text-ink-400 leading-relaxed md:pt-1">{p.body}</div>
           </div>
         ))}
+      </div>
+    </Section>
+  );
+}
+
+function SupportPromise() {
+  return (
+    <Section>
+      <div className="grid md:grid-cols-12 gap-10 md:gap-14">
+        <div className="md:col-span-5">
+          <Eyebrow>{supportPromise.eyebrow}</Eyebrow>
+          <h2 className="mt-5 font-sans text-4xl md:text-6xl font-semibold text-ink-100 tracking-[-0.035em] leading-[1.02]">
+            {supportPromise.title}
+          </h2>
+        </div>
+        <div className="md:col-span-7 md:pl-8 md:border-l md:border-accent-500/30 md:pt-2">
+          <p className="text-lg text-ink-300 leading-relaxed">{supportPromise.body}</p>
+          <Link
+            to={supportPromise.link.to}
+            className="mt-7 inline-flex items-center gap-2 text-ink-100 font-medium text-sm group self-start"
+          >
+            <span className="pb-0.5 border-b border-ink-500 group-hover:border-ink-100 transition-colors">
+              {supportPromise.link.label}
+            </span>
+            <span className="transition-transform group-hover:translate-x-1" aria-hidden>&rarr;</span>
+          </Link>
+        </div>
       </div>
     </Section>
   );
