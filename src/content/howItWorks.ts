@@ -1,13 +1,23 @@
 export const intro = {
   eyebrow: "How it works",
   headline: "Here's what working with us actually looks like.",
-  sub: "No jargon. No 200-page Statement of Work. Five steps, three buttons, and real people backing it all up.",
+  sub: "No jargon. No 200-page Statement of Work. Five steps, three buttons, and a senior engineer one message away when something needs fixing.",
 };
 
 export const templatesPreface = {
   eyebrow: "Before step 1",
-  title: "You start on a solid technical foundation.",
-  body: "Your project doesn't begin with an empty repo. Our engineers have already built and hardened the technical setup - deployment pipeline, hosting, dev and production environments, security, monitoring, error tracking, automated testing, CI/CD - all wired up and ready. It's included in your subscription. You skip months of plumbing and start directly on building product.",
+  title: "Foundation, your way.",
+  body: "Tech setup is on us if you're new to it. Hosting, deploys, security, monitoring, dev and production environments - all wired up before your first task. If you have a stack already, we plug into yours instead. Either way, you skip months of plumbing and start directly on building product.",
+  bullets: [
+    {
+      title: "From scratch",
+      body: "We bring a battle-tested foundation - your project starts on top of it, ready for product work from day one.",
+    },
+    {
+      title: "On your stack",
+      body: "Already have hosting, CI, repo conventions? We learn them and work inside them. We don't impose ours.",
+    },
+  ],
 };
 
 export const expandedSteps = [
@@ -32,48 +42,25 @@ export const expandedSteps = [
   {
     n: "04",
     title: "Start development.",
-    short: "One button. Senior engineers and AI build on a foundation we've already set up.",
-    detail: "Press start and the work begins. Our AI worker writes the code; senior engineers review anything risky or load-bearing. Everything runs on the technical foundation we set up for you up front - hosting, security, deploys, monitoring already wired in. Your code stays yours, your environment is private. You can step away. You'll get updates as tasks finish.",
+    short: "One button. AI builds on the foundation we set up for you.",
+    detail: "Press start and the work begins. AI writes the code on the foundation we wired up at the start - hosting, security, deploys, monitoring already in place. Your code stays yours, your environment is private. You can step away. You'll get updates as tasks finish.",
   },
   {
     n: "05",
     title: "See your product come to life.",
     short: "One button opens your live product - the actual thing. Click around, try it, share it.",
-    detail: "Press the button and your product opens in a new tab - the real, working thing. Not a dashboard. Not a progress bar. The app itself, hosted on a live preview link you can click around and share with friends, investors, or your first beta users. Every finished task auto-deploys here within minutes. When you're ready to put it in front of real customers, one more button promotes it to production.",
+    detail: "Press the button and your product opens in a new tab - the real, working thing. Not a dashboard. Not a progress bar. The app itself, on a live preview link you can share with friends, investors, or first beta users. Every finished task auto-deploys here within minutes. When you're ready, one more button promotes it to production.",
   },
 ];
 
-export const workEnvironment = {
-  eyebrow: "How we work with you",
-  title: "We meet you where you already work.",
-  pillars: [
-    {
-      title: "Planning lives on our platform.",
-      body: "Roadmap, milestones, tasks, and progress all live in your dashboard. Nothing to install - open it in your browser. Share the link with anyone on your team.",
-    },
-    {
-      title: "Chat in your messenger.",
-      body: "Slack, Teams, Google Chat, or whatever your team already uses - we join your channel. No new app for anyone to learn.",
-    },
-    {
-      title: "Meetings on your tool.",
-      body: "Kickoff calls and check-ins happen on whatever you already use - Zoom, Google Meet, Teams, anything. We follow your setup, not ours.",
-    },
-    {
-      title: "Development, however you need.",
-      body: "We can run the whole thing for you, build alongside your team, or any setup in between. Your repo or ours. Your hosting or ours. Flexible end to end.",
-    },
-  ],
-};
-
 export const support = {
-  eyebrow: "Core, not an add-on",
-  title: "When something goes wrong, a real engineer steps in.",
-  body: "A roadmap that doesn't make sense. A result that looks off. A button that won't do what you expected. Send a message. A senior engineer - a real person, the same one who knows your project - replies in our shared channel and gets you unstuck. You are never alone with a half-built product.",
+  eyebrow: "When something needs fixing",
+  title: "Surgical, not on-call.",
+  body: "AI moves fast - and sometimes it gets things wrong. When that happens, send a message. A senior engineer - the same person who knows your project - replies in our shared channel, fixes what needs fixing, and disappears until the next call. No ticket queue. No tier-1 triage. No babysitting.",
   bullets: [
-    "The same engineer who set up your foundation knows your code end to end.",
-    "Reachable in our shared channel - no tickets, no queue, no escalation paths.",
-    "Included on every plan. Not a premium tier, not metered.",
+    "Same engineer, every time. They know your project end to end.",
+    "Reachable in your messenger - Slack, Teams, whatever you use.",
+    "Response within 4 business hours. Faster on Pro and Enterprise.",
     "Senior judgment for product, technical, and business calls - not just bug fixes.",
   ],
 };

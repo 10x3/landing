@@ -1,7 +1,7 @@
 import { Container } from "../components/Container";
 import { Section, Eyebrow } from "../components/Section";
 import { CTABand } from "../components/CTABand";
-import { intro, templatesPreface, expandedSteps, workEnvironment, support } from "../content/howItWorks";
+import { intro, templatesPreface, expandedSteps, support } from "../content/howItWorks";
 
 export function HowItWorks() {
   return (
@@ -9,11 +9,11 @@ export function HowItWorks() {
       <Intro />
       <TemplatesPreface />
       <ExpandedSteps />
-      <WorkEnvironment />
       <Support />
       <CTABand
         title="See it on your own project."
-        sub="Request early access. We'll show you one real cycle - plan, refine, ship - and lock you in at 50% off for 6 months."
+        sub="Book a 30-minute call. We'll walk through your project, tell you whether we're a fit, and lock you in at 50% off for 6 months."
+        primary={{ label: "Book a 30-min call", to: "/contact" }}
       />
     </>
   );
@@ -49,6 +49,16 @@ function TemplatesPreface() {
         </div>
         <div className="md:col-span-7 md:pt-2">
           <p className="text-lg text-ink-300 leading-relaxed">{templatesPreface.body}</p>
+          <div className="mt-10 grid sm:grid-cols-2 gap-0 border-t border-l border-hairline">
+            {templatesPreface.bullets.map((b) => (
+              <div key={b.title} className="p-6 border-r border-b border-hairline">
+                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent-400">
+                  {b.title}
+                </div>
+                <p className="mt-3 text-sm text-ink-300 leading-relaxed">{b.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Section>
@@ -72,37 +82,6 @@ function ExpandedSteps() {
             </div>
             <div className="md:col-span-7 md:pt-2">
               <p className="text-lg text-ink-200 leading-relaxed">{s.detail}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-function WorkEnvironment() {
-  return (
-    <Section>
-      <div className="max-w-3xl">
-        <Eyebrow>{workEnvironment.eyebrow}</Eyebrow>
-        <h2 className="mt-5 font-sans text-4xl md:text-6xl font-semibold text-ink-100 tracking-[-0.035em] leading-[1.02]">
-          {workEnvironment.title}
-        </h2>
-      </div>
-      <div className="mt-14 grid sm:grid-cols-2 gap-0 border-t border-l border-hairline">
-        {workEnvironment.pillars.map((p) => (
-          <div
-            key={p.title}
-            className="p-7 border-r border-b border-hairline"
-          >
-            <div className="flex items-start gap-3">
-              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent-500 flex-shrink-0" />
-              <div>
-                <div className="font-sans text-lg font-medium text-ink-100 tracking-[-0.01em]">
-                  {p.title}
-                </div>
-                <p className="mt-2 text-ink-400 leading-relaxed">{p.body}</p>
-              </div>
             </div>
           </div>
         ))}

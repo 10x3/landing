@@ -1,22 +1,22 @@
 export const hero = {
-  eyebrow: "The network",
-  headline: "Senior engineers. Matched per project.",
-  headlineSecondLine: "Assembled from our vetted network.",
-  sub: "We don't keep a fixed payroll of engineers - we keep a curated network of senior talent across stacks and domains. When you start a project, we assemble a dedicated team from that network and keep them on your project end-to-end.",
+  eyebrow: "The team",
+  headline: "Senior engineers. On-demand.",
+  headlineSecondLine: "Same person, every time.",
+  sub: "AI does the day-to-day building. When something needs fixing - a plan that's wrong, a result that's off, a decision that needs senior judgment - you message us, and the engineer matched to your project shows up. Then disappears until you need them again.",
 };
 
 export const networkPrinciples = [
   {
     title: "Vetted, senior-only",
-    body: "Every engineer in the network clears the same bar: decade-plus shipping at top-tier teams, domain-deep, reference-checked, and aligned with our engineering standards before they take a single project.",
+    body: "Every engineer clears the same bar before they take a project: 10+ years shipping production software, two senior references, a code sample, and a pairing session with a principal. No juniors dressed as seniors.",
   },
   {
     title: "Matched to your project",
-    body: "We pick your team for stack fit, domain fit, and time-zone fit. Not whoever's on the bench at a body shop. If we don't have the right fit, we say so on the intake call - and tell you when we will.",
+    body: "We pick your engineer for stack fit, domain fit, and time-zone fit - not whoever's available. If we don't have the right fit, we say so on the intake call and tell you when we will.",
   },
   {
-    title: "Consistent through shipping",
-    body: "The engineers matched to your project stay on it through the whole engagement. No rotations mid-sprint, no handoffs to juniors, no opaque resource management.",
+    title: "Same person, end to end",
+    body: "The engineer matched to your project stays on it through the whole engagement. No rotations mid-build, no handoffs to juniors, no opaque resource shuffling.",
   },
 ];
 
@@ -25,17 +25,17 @@ export const vettingBar = [
   "Domain-deep in at least one of our core stacks",
   "Two senior references from shipping teams",
   "Code sample + pairing session with a principal",
-  "Signs the engineering manifesto before day one",
   "NDA + security training before first access",
+  "Aligned with our engineering manifesto before day one",
 ];
 
 export const manifesto = [
-  "We ship small PRs - never 4,000-line megabranches.",
-  "We read your code before we write ours.",
-  "We write tests. Always. Even when no one is watching.",
+  "Same person, every time. The engineer matched to your project knows it end to end.",
+  "We respond within 4 business hours when you message us. Faster on Pro and Enterprise.",
   "We say no when the plan is wrong - before you waste a week on it.",
-  "We don't hide behind tickets. We answer in Slack.",
-  "We respond within 4 business hours. Faster on Pro and Enterprise.",
+  "We don't hide behind tickets. We answer in the channel you already use.",
+  "When we touch the code, it's tested and reviewed. We don't push AI output to prod un-checked.",
+  "In and out. We fix what needs fixing and disappear until the next call.",
 ];
 
 export const standards = [
@@ -48,7 +48,7 @@ export const standards = [
 ];
 
 export const disqualifier = {
-  headline: "Not a fit if\u2026",
+  headline: "Not a fit if…",
   points: [
     "You want a ticket queue, not a partner.",
     "You can't share context with us - product goals, constraints, priorities.",

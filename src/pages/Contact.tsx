@@ -21,9 +21,9 @@ function Hero() {
         <div className="max-w-3xl">
           <Eyebrow>{hero.eyebrow}</Eyebrow>
           <h1 className="mt-6 font-sans text-5xl md:text-7xl font-semibold text-ink-100 tracking-[-0.04em] leading-[1.02]">
-            Request early access.
+            {hero.headline}
             <br />
-            <span className="text-ink-500">Locked in at 50% off for 6 months.</span>
+            <span className="text-ink-500">{hero.headlineSecondLine}</span>
           </h1>
           <p className="mt-7 text-lg text-ink-300 leading-relaxed max-w-2xl">{hero.sub}</p>
         </div>

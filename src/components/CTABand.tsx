@@ -3,8 +3,8 @@ import { Container } from "./Container";
 
 export function CTABand({
   title = "Ready to ship?",
-  sub = "Request early access. If you're a fit, you lock in 50% off for 6 months.",
-  primary = { label: "Request early access", to: "/contact" },
+  sub = "Book a 30-min call. If you're a fit, you lock in 50% off for 6 months.",
+  primary = { label: "Book a 30-min call", to: "/contact" },
   secondary,
 }: {
   title?: string;

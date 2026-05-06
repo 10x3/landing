@@ -14,7 +14,8 @@ export function UseCaseNew() {
       <Story />
       <CTABand
         title="Thirty days from now."
-        sub="We can be shipping your MVP by then. Request early access - founding customers lock in 50% off for 6 months."
+        sub="We can be shipping your MVP by then. Book a 30-min call - founding customers lock in 50% off for 6 months."
+        primary={{ label: "Book a 30-min call", to: "/contact" }}
       />
     </>
   );
@@ -35,7 +36,7 @@ function Hero() {
           </h1>
           <p className="mt-7 text-lg text-ink-300 leading-relaxed max-w-2xl">{c.hero.sub}</p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Button to="/contact" variant="primary">Request early access</Button>
+            <Button to="/contact" variant="primary">Book a 30-min call</Button>
             <Button to="/pricing" variant="secondary">See pricing</Button>
           </div>
         </div>

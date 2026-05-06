@@ -34,9 +34,9 @@ export const newProduct = {
   },
   story: {
     label: "Example trajectory",
-    title: "Two-person team, 30 days, full MVP",
-    body: "A solo founder with a Figma-only prototype wanted a working SaaS before their next investor call. We stood up the worker on Day 2, shipped auth + dashboard + the first billable feature by Day 10, and handed over a stage link to their design partners by Day 14. On Day 28 they flipped the switch on production and started booking demos. Zero engineers hired.",
-    footnote: "Composite trajectory based on our template patterns - reach out for references to current clients.",
+    title: "Non-technical founder, 30 days, working product",
+    body: "A non-technical founder with a clear vision wanted a working product before the next investor call. We handled every line of code. By Day 7 they had a clickable demo. By Day 14 they were sharing it with design partners. On Day 28 they shipped to production and started booking customers. Zero engineers hired.",
+    footnote: "Composite trajectory - reach out for references to current clients.",
   },
 };
 

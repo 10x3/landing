@@ -20,8 +20,9 @@ export function Team() {
       <Standards />
       <Disqualifier />
       <CTABand
-        title="Meet your team on the early-access call."
-        sub="We walk you through the network, tell you who we'd match to your project, and lock you in at 50% off for 6 months."
+        title="Meet the engineer we'd match to your project."
+        sub="Book a 30-min call. We'll walk through your project, tell you who'd be on it, and - if we're a fit - lock you in at 50% off for 6 months."
+        primary={{ label: "Book a 30-min call", to: "/contact" }}
       />
     </>
   );
@@ -52,8 +53,8 @@ function Network() {
     <Section>
       <SectionHeading
         eyebrow="The model"
-        title="How a project gets a team."
-        sub="We run a curated network, not a fixed payroll. Three principles hold every engagement together."
+        title="How a project gets its engineer."
+        sub="We don't keep a fixed payroll. We keep a roster of senior engineers across stacks, and match the right one to your project - then keep them on it."
       />
       <div className="mt-14 divide-y divide-hairline border-y border-hairline">
         {networkPrinciples.map((p, i) => (
@@ -77,8 +78,8 @@ function Vetting() {
     <Section tone="surface">
       <SectionHeading
         eyebrow="The bar"
-        title="Who gets into the network."
-        sub="Every engineer clears the same bar before they touch a client project. No juniors dressed as seniors, no resource-pool mystery meat."
+        title="Who gets onto a project."
+        sub="Every engineer clears the same bar before they touch a client project. No juniors dressed as seniors, no resource-pool mystery."
       />
       <ul className="mt-14 grid sm:grid-cols-2 md:grid-cols-3 gap-0 border-t border-l border-hairline">
         {vettingBar.map((item) => (
@@ -100,7 +101,7 @@ function Vetting() {
 function Manifesto() {
   return (
     <Section>
-      <SectionHeading eyebrow="How the network works" title="Six rules every engineer signs before they start." />
+      <SectionHeading eyebrow="The manifesto" title="Six rules every engineer signs before day one." />
       <ul className="mt-14 divide-y divide-hairline border-y border-hairline">
         {manifesto.map((m, i) => (
           <li key={m} className="py-6 flex gap-8 items-baseline">
@@ -120,7 +121,7 @@ function Manifesto() {
 function Standards() {
   return (
     <Section tone="surface">
-      <SectionHeading eyebrow="Engineering standards" title="The technical baseline on every project." />
+      <SectionHeading eyebrow="Engineering standards" title="When we touch the code, this is the baseline." />
       <ul className="mt-14 grid sm:grid-cols-2 md:grid-cols-3 gap-0 border-t border-l border-hairline">
         {standards.map((s) => (
           <li

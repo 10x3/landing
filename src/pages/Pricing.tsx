@@ -17,7 +17,8 @@ export function Pricing() {
       <FaqSection />
       <CTABand
         title="Not sure which plan fits?"
-        sub="Request early access. We'll recommend honestly - including telling you when Beginner is all you need."
+        sub="Book a 30-min call. We'll recommend honestly - including telling you when Beginner is all you need."
+        primary={{ label: "Book a 30-min call", to: "/contact" }}
       />
     </>
   );
@@ -34,8 +35,8 @@ function Hero() {
           <h1 className="mt-6 font-sans text-5xl md:text-7xl font-semibold text-ink-100 tracking-[-0.04em] leading-[1.02]">
             One subscription. <br /><span className="text-ink-500">Three sizes.</span>
           </h1>
-          <p className="mt-7 text-lg text-ink-300 leading-relaxed">
-            Senior engineers in every plan. No SOWs, no hourly billing games, no scoping decks.
+          <p className="mt-7 text-lg text-ink-300 leading-relaxed max-w-2xl">
+            Every plan: AI worker on your roadmap, a dedicated senior engineer one message away when something needs fixing, and the technical foundation already wired up. No SOWs, no hourly billing games, no scoping decks.
           </p>
         </div>
       </Container>
@@ -137,7 +138,7 @@ function Comparison() {
 function FaqSection() {
   return (
     <Section>
-      <SectionHeading eyebrow="Pricing FAQ" title="The ten questions we get most." />
+      <SectionHeading eyebrow="Pricing FAQ" title="The questions we get most." />
       <div className="mt-12">
         <FAQ items={pricingFaq} />
       </div>

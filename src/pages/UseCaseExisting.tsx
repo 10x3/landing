@@ -16,7 +16,8 @@ export function UseCaseExisting() {
       <FaqSection />
       <CTABand
         title="Give us a repo. We&apos;ll give you a PR."
-        sub="Request early access. Bring your stack; we'll show you how the worker picks it up - and lock you in at 50% off for 6 months."
+        sub="Book a 30-min call. Bring your stack; we'll show you how the worker picks it up - and lock you in at 50% off for 6 months."
+        primary={{ label: "Book a 30-min call", to: "/contact" }}
       />
     </>
   );
@@ -37,7 +38,7 @@ function Hero() {
           </h1>
           <p className="mt-7 text-lg text-ink-300 leading-relaxed max-w-2xl">{c.hero.sub}</p>
           <div className="mt-10 flex flex-wrap gap-3">
-            <Button to="/contact" variant="primary">Request early access</Button>
+            <Button to="/contact" variant="primary">Book a 30-min call</Button>
             <Button to="/pricing" variant="secondary">See pricing</Button>
           </div>
         </div>
