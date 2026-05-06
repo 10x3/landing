@@ -3,6 +3,7 @@ import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { Home } from "./pages/Home";
 import { HowItWorks } from "./pages/HowItWorks";
+import { WhatToExpect } from "./pages/WhatToExpect";
 import { Pricing } from "./pages/Pricing";
 import { UseCaseNew } from "./pages/UseCaseNew";
 import { UseCaseExisting } from "./pages/UseCaseExisting";
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/what-to-expect" element={<WhatToExpect />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/use-cases/new-product" element={<UseCaseNew />} />
             <Route path="/use-cases/existing-codebase" element={<UseCaseExisting />} />

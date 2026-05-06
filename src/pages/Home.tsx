@@ -17,6 +17,7 @@ export function Home() {
       <KineticMarquee />
       <ProblemPanel />
       <ScrollSequence />
+      <WhatToExpectPrompt />
       <WorkEnvironmentStrip />
       <SupportPromise />
       <Pillars />
@@ -163,6 +164,29 @@ function ProblemPanel() {
         ))}
       </div>
     </Section>
+  );
+}
+
+function WhatToExpectPrompt() {
+  return (
+    <section className="border-t border-hairline">
+      <Container>
+        <div className="py-8 md:py-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-500">
+            Not sure what to expect when working with us?
+          </div>
+          <Link
+            to="/what-to-expect"
+            className="inline-flex items-center gap-2 text-ink-100 font-medium text-sm group self-start md:self-auto"
+          >
+            <span className="pb-0.5 border-b border-ink-500 group-hover:border-ink-100 transition-colors">
+              Explore the full collaboration flow
+            </span>
+            <span className="transition-transform group-hover:translate-x-1" aria-hidden>&rarr;</span>
+          </Link>
+        </div>
+      </Container>
+    </section>
   );
 }
 
