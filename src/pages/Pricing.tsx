@@ -62,13 +62,13 @@ function Plans() {
 function LaunchBanner() {
   return (
     <div className="relative overflow-hidden rounded-2xl border border-accent-500/40 bg-gradient-to-r from-accent-500/[0.08] via-accent-500/[0.03] to-transparent px-5 py-4 md:px-7 md:py-5">
-      <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
-        <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-300 whitespace-nowrap">
-          <span className="relative flex h-1.5 w-1.5">
+      <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
+        <div className="inline-flex self-start max-w-full items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-300">
+          <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
             <span className="absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-60 animate-ping" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent-400" />
           </span>
-          {launchOffer.label}
+          <span className="min-w-0 whitespace-normal leading-snug">{launchOffer.label}</span>
         </div>
         <div className="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-3">
           <div className="font-sans text-base md:text-lg text-ink-100 font-medium tracking-tight">
@@ -128,7 +128,7 @@ function Comparison() {
         title="10x3 vs the alternatives you&apos;re already weighing."
         sub="Straightforward comparison. No marketing gymnastics. If an alternative is the right call, we&apos;ll tell you."
       />
-      <div className="mt-14 rounded-[1.75rem] border border-hairline bg-canvas p-6 md:p-10">
+      <div className="mt-14 md:rounded-[1.75rem] md:border md:border-hairline md:bg-canvas md:p-10">
         <ComparisonTable />
       </div>
     </Section>

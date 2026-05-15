@@ -13,13 +13,25 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  const showChrome = scrolled || open;
+  const radiusClass = open ? "rounded-3xl" : "rounded-full";
+
   return (
     <header className="sticky top-0 z-40 flex justify-center pt-4 pointer-events-none">
       <div
-        className={`pointer-events-auto mx-4 w-full max-w-6xl transition-all duration-300 ${
-          scrolled
-            ? "bg-ink-900/70 backdrop-blur-xl border border-hairline rounded-full px-3 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.8)]"
-            : "bg-transparent border border-transparent rounded-full px-3"
+        className={`pointer-events-auto mx-4 w-full max-w-6xl transition-[background-color,border-color,box-shadow] duration-300 ${radiusClass} px-3 ${
+          showChrome
+            ? "bg-ink-900/85 backdrop-blur-xl border border-hairline shadow-[0_10px_40px_-20px_rgba(0,0,0,0.8)]"
+            : "bg-transparent border border-transparent"
         }`}
       >
         <div className="flex h-12 items-center justify-between">
@@ -57,9 +69,10 @@ export function Nav() {
           </div>
 
           <button
-            className="md:hidden p-2 text-ink-200"
+            className="md:hidden -mr-1 p-2.5 text-ink-200"
             onClick={() => setOpen((o) => !o)}
             aria-label="Toggle menu"
+            aria-expanded={open}
           >
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.5">
               {open ? (
@@ -75,13 +88,13 @@ export function Nav() {
         </div>
 
         {open && (
-          <div className="md:hidden px-2 pb-4 flex flex-col gap-1">
+          <div className="md:hidden pt-2 pb-3 px-1 flex flex-col gap-1 border-t border-hairline mt-1">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className="text-ink-200 text-base py-2.5 px-3 rounded-lg hover:bg-surface-2"
+                className="text-ink-100 text-[15px] py-3 px-3 rounded-xl hover:bg-surface-2 transition-colors"
               >
                 {link.label}
               </Link>
@@ -89,7 +102,7 @@ export function Nav() {
             <Link
               to={ctaTo}
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-ink-100 text-ink-950 px-4 py-2.5 text-sm font-medium"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-ink-100 text-ink-950 px-4 py-3 text-sm font-medium"
             >
               {ctaLabel}
               <ArrowRight />

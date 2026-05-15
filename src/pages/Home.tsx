@@ -91,12 +91,12 @@ function Hero() {
 
 function LaunchPill() {
   return (
-    <div className="inline-flex items-center gap-2 rounded-full border border-accent-500/40 bg-accent-500/[0.06] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-300">
-      <span className="relative flex h-1.5 w-1.5">
+    <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-accent-500/40 bg-accent-500/[0.06] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-300">
+      <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
         <span className="absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-60 animate-ping" />
         <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent-400" />
       </span>
-      {launchBadge.label}
+      <span className="min-w-0 whitespace-normal leading-snug">{launchBadge.label}</span>
     </div>
   );
 }

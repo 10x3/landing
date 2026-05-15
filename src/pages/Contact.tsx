@@ -78,16 +78,16 @@ function Body() {
 
 function EarlyAccessPanel() {
   return (
-    <div className="relative rounded-[1.75rem] border border-hairline bg-surface p-10 md:p-14 min-h-[480px] flex flex-col items-start justify-between overflow-hidden">
+    <div className="relative rounded-[1.75rem] border border-hairline bg-surface p-7 sm:p-10 md:p-14 min-h-[420px] sm:min-h-[480px] flex flex-col items-start justify-between overflow-hidden">
       <div className="bg-grid absolute inset-0 opacity-40 pointer-events-none" />
       <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-accent-500/10 blur-[100px] pointer-events-none" />
       <div className="relative">
-        <div className="inline-flex items-center gap-2 rounded-full border border-accent-500/40 bg-accent-500/[0.06] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-300">
-          <span className="relative flex h-1.5 w-1.5">
+        <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-accent-500/40 bg-accent-500/[0.06] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-300">
+          <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
             <span className="absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-60 animate-ping" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent-400" />
           </span>
-          {panel.eyebrow}
+          <span className="min-w-0 whitespace-normal leading-snug">{panel.eyebrow}</span>
         </div>
         <div className="mt-8 font-sans text-3xl text-ink-100 font-semibold tracking-[-0.025em] max-w-md">
           {panel.title}
@@ -172,7 +172,7 @@ function Field({
   className?: string;
 }) {
   const base =
-    "w-full bg-canvas-2 border border-hairline rounded-2xl px-4 py-3 text-ink-100 placeholder:text-ink-500 focus:border-accent-500 focus:outline-none transition-colors";
+    "w-full bg-canvas-2 border border-hairline rounded-2xl px-4 py-3 text-base text-ink-100 placeholder:text-ink-500 focus:border-accent-500 focus:outline-none transition-colors";
   return (
     <label className={`block ${className}`}>
       <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">{label}</span>

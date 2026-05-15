@@ -15,7 +15,7 @@ export function CTABand({
   return (
     <section className="py-16 md:py-20">
       <Container>
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-hairline bg-canvas-2 p-10 md:p-20">
+        <div className="relative overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] border border-hairline bg-canvas-2 p-7 sm:p-10 md:p-20">
           <div className="bg-grid absolute inset-0 opacity-50 pointer-events-none" style={{ maskImage: "radial-gradient(circle at 70% 40%, black, transparent 70%)", WebkitMaskImage: "radial-gradient(circle at 70% 40%, black, transparent 70%)" }} />
           <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-accent-500/10 blur-[120px] pointer-events-none" />
           <div className="relative grid md:grid-cols-12 gap-8 items-end">

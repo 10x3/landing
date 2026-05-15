@@ -26,42 +26,68 @@ const colHeaders = [
 
 export function ComparisonTable() {
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full border-collapse text-left text-sm min-w-[720px]">
-        <thead>
-          <tr>
-            <th className="py-5 pr-4 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500 font-medium border-b border-hairline">
-              &nbsp;
-            </th>
-            {colHeaders.map((h) => (
-              <th
-                key={h.key}
-                className={`py-5 px-4 font-sans text-base tracking-tight font-medium border-b ${
-                  h.highlight ? "text-ink-100 border-accent-500" : "text-ink-400 border-hairline"
-                }`}
-              >
-                <span className="inline-flex items-center gap-2">
-                  {h.label}
-                  {h.highlight && <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />}
-                </span>
+    <>
+      <div className="md:hidden space-y-3">
+        {rows.map((r) => (
+          <div key={r.label} className="rounded-2xl border border-hairline bg-canvas-2 p-5">
+            <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">
+              {r.label}
+            </div>
+            <dl className="mt-4 divide-y divide-hairline">
+              {colHeaders.map((h) => (
+                <div key={h.key} className="flex items-baseline justify-between gap-4 py-2.5 first:pt-0 last:pb-0">
+                  <dt className={`font-sans text-[13px] tracking-tight ${h.highlight ? "text-ink-100 font-medium" : "text-ink-500"}`}>
+                    <span className="inline-flex items-center gap-1.5">
+                      {h.label}
+                      {h.highlight && <span className="h-1 w-1 rounded-full bg-accent-500" />}
+                    </span>
+                  </dt>
+                  <dd className={`text-right text-sm ${h.highlight ? "text-ink-100 font-medium" : "text-ink-300"}`}>
+                    {r[h.key]}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ))}
+      </div>
+      <div className="hidden md:block overflow-x-auto">
+        <table className="w-full border-collapse text-left text-sm min-w-[720px]">
+          <thead>
+            <tr>
+              <th className="py-5 pr-4 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500 font-medium border-b border-hairline">
+                &nbsp;
               </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((r, i) => (
-            <tr key={r.label} className={i !== rows.length - 1 ? "border-b border-hairline" : ""}>
-              <td className="py-4 pr-4 text-ink-400 whitespace-nowrap font-mono text-xs uppercase tracking-wider">
-                {r.label}
-              </td>
-              <td className="py-4 px-4 text-ink-100 font-medium">{r.tenx3}</td>
-              <td className="py-4 px-4 text-ink-400">{r.agency}</td>
-              <td className="py-4 px-4 text-ink-400">{r.ai}</td>
-              <td className="py-4 px-4 text-ink-400">{r.hire}</td>
+              {colHeaders.map((h) => (
+                <th
+                  key={h.key}
+                  className={`py-5 px-4 font-sans text-base tracking-tight font-medium border-b ${
+                    h.highlight ? "text-ink-100 border-accent-500" : "text-ink-400 border-hairline"
+                  }`}
+                >
+                  <span className="inline-flex items-center gap-2">
+                    {h.label}
+                    {h.highlight && <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />}
+                  </span>
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {rows.map((r, i) => (
+              <tr key={r.label} className={i !== rows.length - 1 ? "border-b border-hairline" : ""}>
+                <td className="py-4 pr-4 text-ink-400 whitespace-nowrap font-mono text-xs uppercase tracking-wider">
+                  {r.label}
+                </td>
+                <td className="py-4 px-4 text-ink-100 font-medium">{r.tenx3}</td>
+                <td className="py-4 px-4 text-ink-400">{r.agency}</td>
+                <td className="py-4 px-4 text-ink-400">{r.ai}</td>
+                <td className="py-4 px-4 text-ink-400">{r.hire}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
