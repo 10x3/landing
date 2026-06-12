@@ -1,22 +1,22 @@
 export const newProduct = {
   hero: {
     eyebrow: "For founders starting from zero",
-    headline: "From idea to shipped MVP in 30 days - without hiring a single engineer.",
-    sub: "Pick a template or bring a spec. We'll stand up the repo, CI/CD, environments, and the first feature before the week is out.",
+    headline: "From idea to something you'll like in 7 days - without hiring a single engineer.",
+    sub: "Tell us what you're building. We come back with the right project template, and you start building - the first feature live before the week is out. (Bigger projects take a little longer.)",
   },
   timeline: [
-    { day: "Day 1", event: "Kickoff call. We scope the MVP, pick a template, align on stack." },
-    { day: "Day 2", event: "Worker installed. Repo, CI/CD, stage environment, Slack channel - all live." },
-    { day: "Day 3", event: "First sprint plan returned and refined with you." },
-    { day: "Day 7", event: "First feature live on staging. You click a link; it works." },
-    { day: "Day 14", event: "Half the MVP shipped. Real users can click around on stage." },
-    { day: "Day 30", event: "MVP launched. Production live. Monitoring wired. You start talking to customers." },
+    { day: "Kickoff call", event: "We scope the project, pick the right template, and align on what you're building." },
+    { day: "Setup is ready", event: "Your environment and starting template are in place. Nothing for you to wire up." },
+    { day: "You start building", event: "Write up what needs to happen in plain language. AI builds it; you watch it land." },
+    { day: "Day 7-N", event: "Project is ready. You click a link and it works. Bigger scope, a little more time." },
   ],
   templates: [
-    { name: "SaaS starter", stack: "Next.js \u2022 Postgres \u2022 Stripe \u2022 Auth \u2022 Admin" },
-    { name: "Marketplace starter", stack: "Next.js \u2022 Postgres \u2022 Payments \u2022 Two-sided onboarding" },
-    { name: "AI product starter", stack: "Next.js \u2022 Claude/OpenAI \u2022 Vector DB \u2022 Streaming UI" },
-    { name: "Internal tool starter", stack: "React \u2022 Django \u2022 RBAC \u2022 Reporting" },
+    { name: "Web", stack: "Sites, dashboards, and full web apps." },
+    { name: "Chat bots", stack: "Assistants and conversational flows." },
+    { name: "Mobile apps", stack: "iOS and Android products." },
+    { name: "Data processing tools", stack: "Pipelines, dashboards, and automations." },
+    { name: "AI solutions", stack: "Agents, RAG, and AI-powered features." },
+    { name: "Internal tools", stack: "Admin panels, CRUD, and reporting." },
   ],
   focus: {
     yours: [
@@ -26,16 +26,16 @@ export const newProduct = {
       "Product decisions",
     ],
     ours: [
-      "Writing the code",
-      "Setting up CI/CD and environments",
-      "Architecture and security",
+      "Building what you write",
+      "Picking the right template",
+      "Senior judgment when it matters",
       "Shipping on schedule",
     ],
   },
   story: {
     label: "Example trajectory",
-    title: "Non-technical founder, 30 days, working product",
-    body: "A non-technical founder with a clear vision wanted a working product before the next investor call. We handled every line of code. By Day 7 they had a clickable demo. By Day 14 they were sharing it with design partners. On Day 28 they shipped to production and started booking customers. Zero engineers hired.",
+    title: "Non-technical founder, one week, working product",
+    body: "A non-technical founder with a clear vision wanted a working product before the next investor call. They wrote what they needed in plain language; AI did the building. By Day 4 they had a clickable demo. By Day 7 they were sharing a live link with design partners and booking their first customers. Zero engineers hired.",
     footnote: "Composite trajectory - reach out for references to current clients.",
   },
 };
@@ -44,14 +44,14 @@ export const existingCodebase = {
   hero: {
     eyebrow: "For teams with an existing product",
     headline: "Point us at your repo. We'll be shipping by Friday.",
-    sub: "Connect any git provider. The worker ingests your conventions, CI rules, and architecture before writing a single line.",
+    sub: "Connect any git provider. The worker ingests your conventions and architecture before writing a single line.",
   },
   path: [
     { step: "Connect", body: "OAuth into GitHub, GitLab, or Bitbucket - or install on a self-hosted host." },
     { step: "Ingest", body: "The worker indexes the codebase, docs, ADRs, and recent commits." },
-    { step: "Detect conventions", body: "Naming, file layout, PR style, test patterns - matched automatically." },
+    { step: "Detect conventions", body: "Naming, file layout, PR style, test.txt patterns - matched automatically." },
     { step: "Tune the worker", body: "We review detected patterns with you, override anything off." },
-    { step: "Integrate CI/CD", body: "Your existing pipeline, respected. We add gates only if you ask." },
+    { step: "Work your way", body: "We follow your repo's conventions and review rules. We add nothing you didn't ask for." },
     { step: "First PR", body: "Small, conventional, reviewable. Your team merges when happy." },
   ],
   stays: [
@@ -71,7 +71,7 @@ export const existingCodebase = {
     },
     {
       title: "Modernize a legacy area",
-      body: "Isolated refactors with full test coverage - shipped in small, reviewable PRs.",
+      body: "Isolated refactors with full test.txt coverage - shipped in small, reviewable PRs.",
     },
     {
       title: "Backfill a sabbatical",
@@ -87,6 +87,6 @@ export const existingCodebase = {
     { q: "Which languages and stacks?", a: "TypeScript, Python, Go, Rust, Ruby, Java, Kotlin, Swift. Major frameworks supported out of the box; others with a short ramp." },
     { q: "Can you work on a feature branch only?", a: "Yes. Scope the worker to a branch, a directory, or a CODEOWNERS path." },
     { q: "How do you handle secrets?", a: "Your secrets stay in your secret manager. The worker reads them at runtime with scoped credentials." },
-    { q: "Do you modify CI without approval?", a: "No. CI changes go through a PR like everything else, with explicit callouts." },
+    { q: "Do you change anything without approval?", a: "No. Every change goes through a PR like everything else, reviewed by your team before it merges." },
   ],
 };

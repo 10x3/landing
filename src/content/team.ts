@@ -31,7 +31,7 @@ export const vettingBar = [
 
 export const manifesto = [
   "Same person, every time. The engineer matched to your project knows it end to end.",
-  "We respond within 4 business hours when you message us. Faster on Pro and Enterprise.",
+  "We respond within 4 business hours when you message us. Faster on Max and Pro.",
   "We say no when the plan is wrong - before you waste a week on it.",
   "We don't hide behind tickets. We answer in the channel you already use.",
   "When we touch the code, it's tested and reviewed. We don't push AI output to prod un-checked.",
@@ -53,6 +53,5 @@ export const disqualifier = {
     "You want a ticket queue, not a partner.",
     "You can't share context with us - product goals, constraints, priorities.",
     "You're looking for the absolute cheapest option. That isn't us.",
-    "You want us to ship un-reviewed AI output to production. We won't.",
   ],
 };

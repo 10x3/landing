@@ -44,25 +44,31 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
-                <rect x="1" y="1" width="26" height="26" rx="8" fill="var(--color-ink-100)" />
+                <rect x="1" y="1" width="26" height="26" rx="8" fill="var(--color-brand-500)" />
                 <text
-                  x="50%" y="54%" textAnchor="middle" dominantBaseline="middle"
-                  fontFamily="Geist, sans-serif" fontSize="12" fontWeight="700"
-                  fill="var(--color-ink-950)" letterSpacing="-0.02em"
+                  x="11" y="20" textAnchor="middle"
+                  fontFamily="Inter, sans-serif" fontSize="13" fontWeight="700"
+                  fill="#ffffff" letterSpacing="-0.04em"
                 >
                   10
                 </text>
-                <circle cx="21" cy="8" r="2.5" fill="var(--color-accent-500)" />
+                <text
+                  x="21" y="12" textAnchor="middle"
+                  fontFamily="Inter, sans-serif" fontSize="9" fontWeight="700"
+                  fill="var(--color-amber-500)"
+                >
+                  3
+                </text>
               </svg>
-              <span className="font-sans text-lg font-semibold tracking-tight text-ink-100">10x3</span>
+              <span className="font-sans text-lg font-semibold tracking-tight text-zinc-900">10x3</span>
             </div>
-            <p className="mt-4 text-sm text-ink-400 leading-relaxed max-w-xs">
+            <p className="mt-4 text-sm text-zinc-500 leading-relaxed max-w-xs">
               An AI-accelerated dev team, as a service.
             </p>
           </div>
           {columns.map((col) => (
             <div key={col.label}>
-              <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-500">
+              <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-zinc-400">
                 {col.label}
               </div>
               <ul className="mt-5 space-y-3">
@@ -70,7 +76,7 @@ export function Footer() {
                   <li key={l.label}>
                     <Link
                       to={l.to}
-                      className="text-sm text-ink-200 hover:text-ink-100 transition-colors"
+                      className="text-sm text-zinc-800 hover:text-zinc-900 transition-colors"
                     >
                       {l.label}
                     </Link>
@@ -80,7 +86,7 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-16 pt-6 border-t border-hairline flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-ink-500 font-mono">
+        <div className="mt-16 pt-6 border-t border-hairline flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-zinc-400 font-mono">
           <div>&copy; {new Date().getFullYear()} 10x3 &middot; All rights reserved</div>
           <div>Built on the stack we ship</div>
         </div>

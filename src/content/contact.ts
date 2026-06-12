@@ -1,7 +1,7 @@
 export const hero = {
   eyebrow: "Get in touch",
   headline: "Book a 30-min call.",
-  headlineSecondLine: "Locked in at 50% off for 6 months.",
+  headlineSecondLine: "Locked in at 50% off for 3 months.",
   sub: "We're onboarding our first 50 customers now. A short call, and you're in - or you're not, and we tell you straight.",
 };
 
@@ -19,7 +19,7 @@ export const directLine = {
 };
 
 export const panel = {
-  eyebrow: "Book a 30-min call · 50% off for 6 months",
+  eyebrow: "Book a 30-min call · 50% off for 3 months",
   title: "Pick a slot that works for you.",
   sub: "Thirty minutes. We'll walk through your project and tell you whether we're a fit - on the call.",
   buttonLabel: "Book a 30-min call",

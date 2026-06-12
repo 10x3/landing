@@ -47,26 +47,26 @@ function Hero() {
             WebkitMaskImage: "radial-gradient(circle at 30% 30%, black, transparent 70%)",
           }}
         />
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-accent-500/10 blur-[160px] -translate-y-1/3 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-accent-700/5 blur-[140px] translate-y-1/3 -translate-x-1/4" />
+        <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full bg-brand-500/10 blur-[160px] -translate-y-1/3 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-brand-700/5 blur-[140px] translate-y-1/3 -translate-x-1/4" />
       </div>
 
       <Container className="relative">
         <div className="grid md:grid-cols-12 gap-8 md:gap-6 items-start">
           <div className="md:col-span-8">
             <LaunchPill />
-            <h1 className="mt-5 font-sans text-[40px] sm:text-5xl md:text-[68px] lg:text-[80px] font-semibold tracking-[-0.04em] text-ink-100 leading-[0.98]">
+            <h1 className="mt-5 font-sans text-[40px] sm:text-5xl md:text-[68px] lg:text-[80px] font-semibold tracking-[-0.04em] text-zinc-900 leading-[0.98]">
               {hero.headlineLeader}
               <br />
-              <span className="text-ink-400">{hero.headlineFocus}</span>
+              <span className="text-brand-600">{hero.headlineFocus}</span>
             </h1>
-            <p className="mt-6 md:mt-7 text-base md:text-lg text-ink-300 leading-relaxed max-w-2xl">
+            <p className="mt-6 md:mt-7 text-base md:text-lg text-zinc-600 leading-relaxed max-w-2xl">
               {hero.sub}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to={hero.primary.to}
-                className="group inline-flex items-center gap-2 rounded-full bg-ink-100 text-ink-950 px-5 py-3 text-sm font-medium tracking-tight hover:bg-white transition-all active:translate-y-[1px]"
+                className="group inline-flex items-center gap-2 rounded-full bg-brand-500 text-white px-5 py-3 text-sm font-medium tracking-tight hover:bg-brand-600 transition-all active:translate-y-[1px]"
               >
                 {hero.primary.label}
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="transition-transform group-hover:translate-x-0.5">
@@ -91,10 +91,10 @@ function Hero() {
 
 function LaunchPill() {
   return (
-    <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-accent-500/40 bg-accent-500/[0.06] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-300">
+    <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/[0.08] px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-[#d99a2b]">
       <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
-        <span className="absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-60 animate-ping" />
-        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent-400" />
+        <span className="absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-60 animate-ping" />
+        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-500" />
       </span>
       <span className="min-w-0 whitespace-normal leading-snug">{launchBadge.label}</span>
     </div>
@@ -104,13 +104,13 @@ function LaunchPill() {
 function Stat({ value, label, hint }: { value: string; label: string; hint: string }) {
   return (
     <div>
-      <div className="font-sans text-4xl md:text-[40px] font-semibold tracking-[-0.04em] text-ink-100">
+      <div className="font-sans text-4xl md:text-[40px] font-semibold tracking-[-0.04em] text-[#d99a2b]">
         {value}
       </div>
-      <div className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-400">
+      <div className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-brand-600">
         {label}
       </div>
-      <p className="mt-1.5 text-xs md:text-sm text-ink-400 leading-relaxed max-w-[220px]">{hint}</p>
+      <p className="mt-1.5 text-xs md:text-sm text-zinc-500 leading-relaxed max-w-[220px]">{hint}</p>
     </div>
   );
 }
@@ -125,17 +125,17 @@ function ThreeMovements() {
       />
       <div className="mt-14 grid md:grid-cols-3 gap-0 border-t border-l border-hairline">
         {threeMovements.movements.map((m, i) => (
-          <div key={m.title} className="p-7 md:p-9 border-r border-b border-hairline bg-canvas">
-            <div className="font-mono text-xs text-accent-400 tracking-[0.18em] uppercase">
+          <div key={m.title} className="p-7 md:p-9 border-r border-b border-hairline bg-zinc-50">
+            <div className="font-mono text-xs text-[#d99a2b] tracking-[0.18em] uppercase">
               {String(i + 1).padStart(2, "0")}
             </div>
-            <h3 className="mt-4 font-sans text-2xl md:text-3xl font-semibold text-ink-100 tracking-[-0.02em] leading-[1.1]">
+            <h3 className="mt-4 font-sans text-2xl md:text-3xl font-semibold text-zinc-900 tracking-[-0.02em] leading-[1.1]">
               {m.title}
             </h3>
-            <p className="mt-5 text-sm font-mono text-ink-500 leading-relaxed">
+            <p className="mt-5 text-sm font-mono text-zinc-400 leading-relaxed">
               {m.problem}
             </p>
-            <p className="mt-3 text-base text-ink-200 leading-relaxed">
+            <p className="mt-3 text-base text-zinc-800 leading-relaxed">
               {m.answer}
             </p>
           </div>
@@ -151,15 +151,15 @@ function Engineers() {
       <div className="grid md:grid-cols-12 gap-10 md:gap-14">
         <div className="md:col-span-5">
           <Eyebrow>{engineers.eyebrow}</Eyebrow>
-          <h2 className="mt-5 font-sans text-4xl md:text-6xl font-semibold text-ink-100 tracking-[-0.035em] leading-[1.02]">
+          <h2 className="mt-5 font-sans text-4xl md:text-6xl font-semibold text-zinc-900 tracking-[-0.035em] leading-[1.02]">
             {engineers.title}
           </h2>
-          <p className="mt-7 text-ink-400 leading-relaxed max-w-md">{engineers.vetting}</p>
+          <p className="mt-7 text-zinc-500 leading-relaxed max-w-md">{engineers.vetting}</p>
           <Link
             to={engineers.link.to}
-            className="mt-8 inline-flex items-center gap-2 text-ink-100 font-medium text-sm group"
+            className="mt-8 inline-flex items-center gap-2 text-[#d99a2b] font-medium text-sm group"
           >
-            <span className="pb-0.5 border-b border-ink-500 group-hover:border-ink-100 transition-colors">
+            <span className="pb-0.5 border-b border-[#d99a2b]/40 group-hover:border-[#d99a2b] transition-colors">
               {engineers.link.label}
             </span>
             <span className="transition-transform group-hover:translate-x-1" aria-hidden>&rarr;</span>
@@ -168,14 +168,14 @@ function Engineers() {
         <div className="md:col-span-7 md:pt-2 space-y-7">
           {engineers.rules.map((r, i) => (
             <div key={r.title} className="flex gap-5">
-              <div className="font-mono text-xs text-accent-400 pt-1.5 w-8 flex-shrink-0">
+              <div className="font-mono text-xs text-[#d99a2b] pt-1.5 w-8 flex-shrink-0">
                 {String(i + 1).padStart(2, "0")}
               </div>
               <div>
-                <div className="font-sans text-xl font-semibold text-ink-100 tracking-[-0.01em]">
+                <div className="font-sans text-xl font-semibold text-zinc-900 tracking-[-0.01em]">
                   {r.title}
                 </div>
-                <p className="mt-2 text-ink-300 leading-relaxed">{r.body}</p>
+                <p className="mt-2 text-zinc-600 leading-relaxed">{r.body}</p>
               </div>
             </div>
           ))}
@@ -190,14 +190,14 @@ function HowItWorksFooter() {
     <section className="border-t border-hairline">
       <Container>
         <div className="py-8 md:py-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-500">
+          <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-400">
             {howItWorksFooter.prompt}
           </div>
           <Link
             to={howItWorksFooter.link.to}
-            className="inline-flex items-center gap-2 text-ink-100 font-medium text-sm group self-start md:self-auto"
+            className="inline-flex items-center gap-2 text-[#d99a2b] font-medium text-sm group self-start md:self-auto"
           >
-            <span className="pb-0.5 border-b border-ink-500 group-hover:border-ink-100 transition-colors">
+            <span className="pb-0.5 border-b border-[#d99a2b]/40 group-hover:border-[#d99a2b] transition-colors">
               {howItWorksFooter.link.label}
             </span>
             <span className="transition-transform group-hover:translate-x-1" aria-hidden>&rarr;</span>
@@ -213,7 +213,7 @@ function UseCaseCallout() {
     <Section tone="surface">
       <div className="max-w-2xl">
         <Eyebrow>{useCaseCallout.eyebrow}</Eyebrow>
-        <h2 className="mt-5 font-sans text-3xl md:text-4xl font-semibold text-ink-100 tracking-[-0.025em] leading-[1.1]">
+        <h2 className="mt-5 font-sans text-3xl md:text-4xl font-semibold text-zinc-900 tracking-[-0.025em] leading-[1.1]">
           {useCaseCallout.title}
         </h2>
       </div>
@@ -222,14 +222,14 @@ function UseCaseCallout() {
           <Link
             key={o.title}
             to={o.to}
-            className="group p-8 border-r border-b border-hairline bg-canvas hover:bg-surface transition-colors flex flex-col"
+            className="group p-8 border-r border-b border-hairline bg-zinc-50 hover:bg-white transition-colors flex flex-col"
           >
-            <div className="font-sans text-xl md:text-2xl font-semibold text-ink-100 tracking-[-0.015em]">
+            <div className="font-sans text-xl md:text-2xl font-semibold text-zinc-900 tracking-[-0.015em]">
               {o.title}
             </div>
-            <p className="mt-3 text-ink-400 leading-relaxed">{o.hint}</p>
-            <span className="mt-6 inline-flex items-center gap-2 text-sm text-ink-200 group-hover:text-ink-100">
-              <span className="pb-0.5 border-b border-ink-600 group-hover:border-ink-200 transition-colors">
+            <p className="mt-3 text-zinc-500 leading-relaxed">{o.hint}</p>
+            <span className="mt-6 inline-flex items-center gap-2 text-sm text-[#d99a2b] group-hover:text-[#b87f1f]">
+              <span className="pb-0.5 border-b border-[#d99a2b]/40 group-hover:border-[#d99a2b] transition-colors">
                 {o.label}
               </span>
               <span className="transition-transform group-hover:translate-x-1" aria-hidden>&rarr;</span>
@@ -251,9 +251,9 @@ function PricingPreview() {
         />
         <Link
           to="/pricing"
-          className="inline-flex items-center gap-2 text-ink-100 font-medium text-sm group self-start md:self-auto"
+          className="inline-flex items-center gap-2 text-[#d99a2b] font-medium text-sm group self-start md:self-auto"
         >
-          <span className="pb-0.5 border-b border-ink-500 group-hover:border-ink-100 transition-colors">
+          <span className="pb-0.5 border-b border-[#d99a2b]/40 group-hover:border-[#d99a2b] transition-colors">
             View full pricing
           </span>
           <span className="transition-transform group-hover:translate-x-1" aria-hidden>&rarr;</span>

@@ -15,12 +15,12 @@ export function FAQ({ items }: { items: readonly Item[] | Item[] }) {
               onClick={() => setOpen(isOpen ? null : i)}
               aria-expanded={isOpen}
             >
-              <span className="font-sans text-[17px] font-medium text-ink-100 tracking-tight pr-4 group-hover:text-white transition-colors">
+              <span className="font-sans text-[17px] font-medium text-zinc-900 tracking-tight pr-4 group-hover:text-brand-600 transition-colors">
                 {item.q}
               </span>
               <span
-                className={`flex-shrink-0 text-ink-400 transition-all duration-300 ${
-                  isOpen ? "rotate-45 text-accent-400" : ""
+                className={`flex-shrink-0 text-zinc-500 transition-all duration-300 ${
+                  isOpen ? "rotate-45 text-brand-600" : ""
                 }`}
                 aria-hidden
               >
@@ -34,7 +34,7 @@ export function FAQ({ items }: { items: readonly Item[] | Item[] }) {
                 isOpen ? "max-h-96 pb-5" : "max-h-0"
               }`}
             >
-              <p className="text-ink-300 leading-relaxed max-w-3xl">{item.a}</p>
+              <p className="text-zinc-600 leading-relaxed max-w-3xl">{item.a}</p>
             </div>
           </div>
         );

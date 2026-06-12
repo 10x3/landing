@@ -13,58 +13,55 @@ export type Plan = {
 
 export const launchOffer = {
   label: "Launch offer",
-  title: "First 50 customers \u00b7 50% off for 6 months",
+  title: "First 50 customers \u00b7 50% off for 3 months",
   sub: "Locked in at signup. Offer closes when we hit the cap.",
 };
 
 export const plans: Plan[] = [
   {
     name: "Beginner",
-    price: "$2,500",
+    price: "$2,400",
     priceSuffix: "/ month",
     bestFor: "Solo founders validating an idea",
     features: [
       "20 senior engineer hours / mo",
-      "3 concurrent tasks",
-      "Dev env (auto) + prod (one-click)",
-      "Standard CI/CD templates",
+      "3 tasks in parallel",
+      "Live preview - every task ships there",
       "Business-hours Slack support",
       "1-month minimum term",
     ],
     cta: { label: "Book a 30-min call", to: "/contact" },
-    launchPrice: "$1,250",
-    launchNote: "50% off, locked for 6 months",
+    launchPrice: "$1,200",
+    launchNote: "50% off, locked for 3 months",
   },
   {
-    name: "Pro",
-    price: "$7,500",
+    name: "Max",
+    price: "$4,800",
     priceSuffix: "/ month",
     bestFor: "Funded startups shipping product",
     highlight: true,
     features: [
-      "80 senior engineer hours / mo",
-      "10 concurrent tasks",
-      "All deployments configurable",
-      "Custom CI/CD pipeline",
+      "40 senior engineer hours / mo",
+      "5 tasks in parallel",
+      "Live preview - every task ships there",
       "Extended-hours Slack support",
       "3-month minimum term",
     ],
     cta: { label: "Book a 30-min call", to: "/contact" },
-    launchPrice: "$3,750",
-    launchNote: "50% off, locked for 6 months",
+    launchPrice: "$2,400",
+    launchNote: "50% off, locked for 3 months",
   },
   {
-    name: "Enterprise",
+    name: "Pro",
     price: "Custom",
-    priceSuffix: "from $20K / mo",
+    priceSuffix: "everything negotiable",
     bestFor: "Teams running parallel initiatives",
     features: [
-      "Dedicated team, 200+ hrs / mo",
-      "Unlimited concurrent tasks",
-      "Configurable deploys + compliance review",
-      "Custom pipeline + compliance review",
+      "Senior hours scaled to your scope",
+      "Tasks in parallel scaled to your team",
+      "Live preview - every task ships there",
       "Dedicated channel, SLA, on-call",
-      "6-month minimum term",
+      "Terms scoped to your engagement",
     ],
     cta: { label: "Book a 30-min call", to: "/contact" },
     launchFallbackNote: "Founding-partner terms - ask on the early-access call.",
@@ -73,10 +70,9 @@ export const plans: Plan[] = [
 
 export const everyPlanIncludes = [
   "Dedicated senior engineer - same person, end to end",
-  "AI worker that builds on your roadmap",
-  "Battle-tested foundation: hosting, deploys, security, monitoring",
+  "AI that builds the tasks you write, in plain language",
+  "The right project template to start from",
   "Live preview environment - every task ships there",
-  "Production deploy with one click",
   "Senior response within 4 business hours when you message us",
   "Dedicated channel in your messenger of choice",
   "Zero onboarding fee, NDAs signed before kickoff",
@@ -85,7 +81,7 @@ export const everyPlanIncludes = [
 export const pricingFaq = [
   {
     q: "How does the 50%-off early-access pricing work?",
-    a: "Our first 50 customers get 50% off their plan for six months, locked in at signup. After the six months, pricing returns to the listed rate - with 30 days notice. No surprise price hikes. Enterprise follows founding-partner terms negotiated on the intake call.",
+    a: "Our first 50 customers get 50% off their plan for three months, locked in at signup. After the three months, pricing returns to the listed rate - with 30 days notice. No surprise price hikes. Pro follows founding-partner terms negotiated on the intake call.",
   },
   {
     q: "What does the senior engineer actually do?",
@@ -93,11 +89,11 @@ export const pricingFaq = [
   },
   {
     q: "What if the AI makes a bad call - who's liable?",
-    a: "The platform flags risky or load-bearing work for senior review before anything merges. For routine work, tests and CI act as the first gate - and if anything slips, we fix it on our time. Nothing ships to production without an explicit click from you.",
+    a: "The platform flags risky or load-bearing work for senior review before anything merges. For routine work, automated tests act as the first gate - and if anything slips, we fix it on our time. Nothing goes live without an explicit click from you.",
   },
   {
-    q: "Can I bring my own git provider and cloud?",
-    a: "Yes. GitHub, GitLab, Bitbucket, and self-hosted options are all supported. The work runs on our infrastructure or yours.",
+    q: "Do I have to write the tasks myself?",
+    a: "You describe, in plain language, what needs to happen - AI does the building from there. No tickets, no technical spec required. Your senior engineer is one message away if you'd rather talk it through.",
   },
   {
     q: "Is my code private?",

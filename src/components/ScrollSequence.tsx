@@ -82,25 +82,25 @@ export function ScrollSequence() {
 
   if (!isDesktop) {
     return (
-      <section className="relative bg-canvas-2 border-y border-hairline overflow-hidden">
+      <section className="relative bg-white border-y border-hairline overflow-hidden">
         <div className="bg-grid absolute inset-0 opacity-30 pointer-events-none" />
         <div className="relative mx-auto max-w-6xl px-6 py-20">
-          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500 mb-10">
+          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-400 mb-10">
             <span className="inline-flex items-center gap-2.5">
-              <span className="h-px w-5 bg-accent-500" /> How it works
+              <span className="h-px w-5 bg-amber-500" /> How it works
             </span>
           </div>
           <ol className="relative border-l border-hairline pl-7 space-y-12">
             {howItWorksSteps.map((step) => (
               <li key={step.n} className="relative">
-                <span className="absolute -left-[34px] top-1.5 flex h-3 w-3 items-center justify-center rounded-full bg-accent-500 ring-4 ring-canvas-2" />
-                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent-400">
+                <span className="absolute -left-[34px] top-1.5 flex h-3 w-3 items-center justify-center rounded-full bg-brand-500 ring-4 ring-white" />
+                <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#d99a2b]">
                   Step {step.n}
                 </div>
-                <h3 className="mt-3 font-sans text-3xl sm:text-4xl font-semibold tracking-[-0.035em] text-ink-100 leading-[1.05]">
+                <h3 className="mt-3 font-sans text-3xl sm:text-4xl font-semibold tracking-[-0.035em] text-zinc-900 leading-[1.05]">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-base sm:text-lg text-ink-300 leading-relaxed max-w-xl">
+                <p className="mt-4 text-base sm:text-lg text-zinc-600 leading-relaxed max-w-xl">
                   {step.body}
                 </p>
               </li>
@@ -112,14 +112,14 @@ export function ScrollSequence() {
   }
 
   return (
-    <section className="relative bg-canvas-2 border-y border-hairline overflow-hidden">
+    <section className="relative bg-white border-y border-hairline overflow-hidden">
       <div ref={rootRef} className="relative h-[100dvh] flex items-center">
         <div className="bg-grid absolute inset-0 opacity-30 pointer-events-none" />
         <div className="relative w-full mx-auto max-w-6xl px-6 md:px-10 grid md:grid-cols-12 gap-10 items-center">
           <aside className="md:col-span-4 space-y-1.5">
-            <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500 mb-6">
+            <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-400 mb-6">
               <span className="inline-flex items-center gap-2.5">
-                <span className="h-px w-5 bg-accent-500" /> How it works
+                <span className="h-px w-5 bg-amber-500" /> How it works
               </span>
             </div>
             {howItWorksSteps.map((step, i) => (
@@ -130,12 +130,12 @@ export function ScrollSequence() {
                 aria-label={`Jump to step ${step.n}: ${step.title}`}
                 data-rail-item
                 data-active={i === 0 ? "true" : "false"}
-                className="group block w-full text-left py-3 border-l-2 pl-5 cursor-pointer transition-all duration-300 data-[active=true]:border-accent-500 data-[active=false]:border-hairline hover:data-[active=false]:border-accent-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas-2"
+                className="group block w-full text-left py-3 border-l-2 pl-5 cursor-pointer transition-all duration-300 data-[active=true]:border-brand-500 data-[active=false]:border-hairline hover:data-[active=false]:border-brand-500/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
-                <div className="font-mono text-xs text-ink-500 group-data-[active=true]:text-accent-400 group-hover:text-accent-400/80 transition-colors">
+                <div className="font-mono text-xs text-zinc-400 group-data-[active=true]:text-[#d99a2b] group-hover:text-[#d99a2b]/80 transition-colors">
                   {step.n}
                 </div>
-                <div className="mt-1 text-[15px] font-medium tracking-tight text-ink-400 group-data-[active=true]:text-ink-100 group-hover:text-ink-200 transition-colors">
+                <div className="mt-1 text-[15px] font-medium tracking-tight text-zinc-500 group-data-[active=true]:text-zinc-900 group-hover:text-zinc-800 transition-colors">
                   {step.title}
                 </div>
               </button>
@@ -150,13 +150,13 @@ export function ScrollSequence() {
                 className="absolute inset-0 flex flex-col justify-center"
               >
                 <div className="max-w-3xl">
-                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent-400">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#d99a2b]">
                     Step {step.n}
                   </div>
-                  <h3 className="mt-5 font-sans text-4xl md:text-6xl font-semibold tracking-[-0.035em] text-ink-100 leading-[1.02]">
+                  <h3 className="mt-5 font-sans text-4xl md:text-6xl font-semibold tracking-[-0.035em] text-zinc-900 leading-[1.02]">
                     {step.title}
                   </h3>
-                  <p className="mt-6 text-lg md:text-xl text-ink-300 leading-relaxed max-w-xl">
+                  <p className="mt-6 text-lg md:text-xl text-zinc-600 leading-relaxed max-w-xl">
                     {step.body}
                   </p>
                 </div>

@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <NoiseLayer />
-      <div className="relative min-h-screen flex flex-col bg-canvas text-ink-100">
+      <div className="relative min-h-screen flex flex-col bg-zinc-50 text-zinc-900">
         <Nav />
         <main className="flex-1">
           <Routes>

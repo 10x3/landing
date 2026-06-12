@@ -16,7 +16,7 @@ export function UseCaseExisting() {
       <FaqSection />
       <CTABand
         title="Give us a repo. We&apos;ll give you a PR."
-        sub="Book a 30-min call. Bring your stack; we'll show you how the worker picks it up - and lock you in at 50% off for 6 months."
+        sub="Book a 30-min call. Bring your stack; we'll show you how the worker picks it up - and lock you in at 50% off for 3 months."
         primary={{ label: "Book a 30-min call", to: "/contact" }}
       />
     </>
@@ -27,16 +27,16 @@ function Hero() {
   return (
     <section className="relative pt-28 md:pt-40 pb-12 overflow-hidden">
       <div className="bg-grid absolute inset-0 opacity-30 pointer-events-none" />
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-accent-500/10 blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-brand-500/10 blur-[140px] pointer-events-none" />
       <Container className="relative">
         <div className="max-w-4xl">
           <Eyebrow>{c.hero.eyebrow}</Eyebrow>
-          <h1 className="mt-6 font-sans text-5xl md:text-7xl font-semibold text-ink-100 tracking-[-0.04em] leading-[1.02]">
+          <h1 className="mt-6 font-sans text-5xl md:text-7xl font-semibold text-zinc-900 tracking-[-0.04em] leading-[1.02]">
             Point us at your repo.
             <br />
-            <span className="text-ink-500">We&apos;ll be shipping by Friday.</span>
+            <span className="text-brand-600">We&apos;ll be shipping by Friday.</span>
           </h1>
-          <p className="mt-7 text-lg text-ink-300 leading-relaxed max-w-2xl">{c.hero.sub}</p>
+          <p className="mt-7 text-lg text-zinc-600 leading-relaxed max-w-2xl">{c.hero.sub}</p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Button to="/contact" variant="primary">Book a 30-min call</Button>
             <Button to="/pricing" variant="secondary">See pricing</Button>
@@ -56,12 +56,12 @@ function Path() {
       />
       <div className="mt-14 grid md:grid-cols-3 gap-0 border-t border-l border-hairline">
         {c.path.map((p, i) => (
-          <div key={p.step} className="p-8 border-r border-b border-hairline bg-canvas">
-            <div className="font-mono text-xs text-accent-400 uppercase tracking-[0.18em]">
+          <div key={p.step} className="p-8 border-r border-b border-hairline bg-zinc-50">
+            <div className="font-mono text-xs text-[#d99a2b] uppercase tracking-[0.18em]">
               {String(i + 1).padStart(2, "0")}
             </div>
-            <div className="mt-3 font-sans text-xl text-ink-100 font-semibold tracking-[-0.015em]">{p.step}</div>
-            <p className="mt-2.5 text-ink-400 leading-relaxed text-sm">{p.body}</p>
+            <div className="mt-3 font-sans text-xl text-zinc-900 font-semibold tracking-[-0.015em]">{p.step}</div>
+            <p className="mt-2.5 text-zinc-500 leading-relaxed text-sm">{p.body}</p>
           </div>
         ))}
       </div>
@@ -77,9 +77,9 @@ function Stays() {
         {c.stays.map((s) => (
           <li
             key={s}
-            className="p-7 border-r border-b border-hairline text-ink-200 flex gap-3 bg-canvas"
+            className="p-7 border-r border-b border-hairline text-zinc-800 flex gap-3 bg-zinc-50"
           >
-            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent-500 flex-shrink-0" />
+            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand-500 flex-shrink-0" />
             <span className="leading-relaxed">{s}</span>
           </li>
         ))}
@@ -95,8 +95,8 @@ function UseCases() {
       <div className="mt-14 grid md:grid-cols-2 gap-0 border-t border-l border-hairline">
         {c.useCases.map((u) => (
           <div key={u.title} className="p-8 border-r border-b border-hairline">
-            <div className="font-sans text-xl font-semibold text-ink-100 tracking-[-0.015em]">{u.title}</div>
-            <p className="mt-3 text-ink-400 leading-relaxed">{u.body}</p>
+            <div className="font-sans text-xl font-semibold text-zinc-900 tracking-[-0.015em]">{u.title}</div>
+            <p className="mt-3 text-zinc-500 leading-relaxed">{u.body}</p>
           </div>
         ))}
       </div>
@@ -109,10 +109,10 @@ function CtoNote() {
     <Section tone="surface">
       <div className="max-w-3xl">
         <Eyebrow>For CTOs</Eyebrow>
-        <h2 className="mt-6 font-sans text-3xl md:text-5xl font-semibold text-ink-100 tracking-[-0.03em] leading-[1.1]">
+        <h2 className="mt-6 font-sans text-3xl md:text-5xl font-semibold text-zinc-900 tracking-[-0.03em] leading-[1.1]">
           {c.ctoNote.headline}
         </h2>
-        <p className="mt-8 text-lg text-ink-300 leading-relaxed">{c.ctoNote.body}</p>
+        <p className="mt-8 text-lg text-zinc-600 leading-relaxed">{c.ctoNote.body}</p>
       </div>
     </Section>
   );

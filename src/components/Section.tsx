@@ -14,9 +14,9 @@ export function Section({
 }) {
   const toneClass =
     tone === "inverted"
-      ? "bg-ink-100 text-ink-900"
+      ? "bg-brand-500 text-white"
       : tone === "surface"
-      ? "bg-canvas-2"
+      ? "bg-white"
       : "";
   return (
     <section id={id} className={`py-16 md:py-20 relative ${toneClass} ${className}`}>
@@ -27,8 +27,8 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode; tone?: "default" | "inverted" }) {
   return (
-    <div className="inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-400">
-      <span className="h-px w-5 bg-accent-500" />
+    <div className="inline-flex items-center gap-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+      <span className="h-px w-5 bg-amber-500" />
       {children}
     </div>
   );
@@ -47,8 +47,8 @@ export function SectionHeading({
   center?: boolean;
   inverted?: boolean;
 }) {
-  const titleColor = inverted ? "text-ink-900" : "text-ink-100";
-  const subColor = inverted ? "text-ink-600" : "text-ink-300";
+  const titleColor = inverted ? "text-white" : "text-zinc-900";
+  const subColor = inverted ? "text-zinc-400" : "text-zinc-600";
   return (
     <div className={`${center ? "text-center mx-auto max-w-3xl" : "max-w-3xl"}`}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}

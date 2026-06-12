@@ -7,12 +7,13 @@ export const hero = {
 };
 
 export const launchBadge = {
-  label: "Private beta · 50% off for 6 months",
+  label: "Private beta · 50% off for 3 months",
 };
 
 export const heroStats = [
-  { value: "30d", label: "Idea to live MVP", hint: "On our zero-to-one foundation." },
-  { value: "<4h", label: "Senior response", hint: "When you message us. Faster on Pro and Enterprise." },
+  { value: "7d", label: "Idea to live product", hint: "Or more if the project is huge." },
+  { value: "<4h", label: "Senior response", hint: "When you message us. Faster on Max and Pro." },
+  { value: "0", label: "Tech knowledge needed", hint: "You describe it in plain words; AI builds it." },
 ];
 
 export const threeMovements = {
@@ -31,9 +32,9 @@ export const threeMovements = {
       answer: "Message us. The right person shows up, fixes it, and disappears until the next call. Surgical, not 24/7.",
     },
     {
-      title: "Foundation handled.",
-      problem: "Months of plumbing - hosting, deploys, security - before any product gets built.",
-      answer: "Tech setup is on us if you're new to it. If you have a stack already, we wire into yours. Your call.",
+      title: "You're in control.",
+      problem: "Generic plans and templates that don't match how your business works.",
+      answer: "You write, in plain language, exactly what has to be done. AI builds it. Nothing generic, nothing you didn't ask for.",
     },
   ],
 };
@@ -63,32 +64,22 @@ export const howItWorksSteps = [
   {
     n: "01",
     title: "Tell us about your project.",
-    body: "Share your idea, your goals, and your constraints. We turn it into a step-by-step roadmap, in plain English you can actually read.",
+    body: "Share your idea, your goals, and your constraints. We come back with the right project template.",
   },
   {
     n: "02",
-    title: "Shape the roadmap to fit your business.",
-    body: "Walk through every milestone with us. Reorder, re-prioritize, cut what doesn't matter. The plan should match how your business works - not a generic template.",
+    title: "You start building.",
+    body: "Write up, in plain language, exactly what has to be done. AI builds it. You can step away - we'll keep you posted as it ships.",
   },
   {
     n: "03",
-    title: "Generate the development tasks.",
-    body: "One button. Your roadmap becomes a clean list of build-ready tasks. Review and tweak them before a single line of code is written.",
-  },
-  {
-    n: "04",
-    title: "Start development.",
-    body: "One button. AI starts building on a foundation we've already set up - hosting, deploys, security, monitoring, all included. You can step away. We'll keep you posted.",
-  },
-  {
-    n: "05",
     title: "See your product come to life.",
     body: "One button opens your live product - the actual thing. Click around, try it, share it. When it's ready, one more button puts it in front of real customers.",
   },
 ];
 
 export const howItWorksFooter = {
-  prompt: "Want every detail — NDA, contract, infrastructure setup?",
+  prompt: "Want every detail — NDA, contract, how a project starts?",
   link: { label: "See the full workflow", to: "/how-it-works" },
 };
 
@@ -98,7 +89,7 @@ export const useCaseCallout = {
   options: [
     {
       title: "Building from scratch?",
-      hint: "30-day path from idea to live MVP - zero engineers hired.",
+      hint: "From idea to a live product in about a week - zero engineers hired.",
       label: "See the new-product path",
       to: "/use-cases/new-product",
     },
@@ -118,5 +109,5 @@ export const pricingPreviewHeading = {
 
 export const finalCta = {
   title: "Ready to see your idea ship?",
-  sub: "Book a 30-minute call. We'll walk through your project, tell you whether we're a fit, and — if we are — lock you in at 50% off for 6 months.",
+  sub: "Book a 30-minute call. We'll walk through your project, tell you whether we're a fit, and — if we are — lock you in at 50% off for 3 months.",
 };

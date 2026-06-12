@@ -10,14 +10,14 @@ const crests = [
 export function TrustStrip({ label }: { label: string }) {
   return (
     <div className="mt-16 md:mt-24">
-      <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-500">
+      <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-400">
         {label}
       </div>
       <div className="mt-5 flex flex-wrap items-center gap-x-10 gap-y-4">
         {crests.map((c) => (
           <span
             key={c}
-            className="font-sans text-lg tracking-tight text-ink-300/70 font-medium"
+            className="font-sans text-lg tracking-tight text-zinc-600/70 font-medium"
           >
             {c}
           </span>

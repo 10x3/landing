@@ -1,33 +1,49 @@
 import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
+import { cn } from "../lib/cn";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "subtle" | "danger";
+type Size = "sm" | "md" | "lg";
 
-const styles: Record<Variant, string> = {
+// Light-mode Aperture variants. Heritage green carries the primary action.
+const variants: Record<Variant, string> = {
   primary:
-    "bg-ink-100 text-ink-950 hover:bg-white active:translate-y-[1px] shadow-[0_1px_0_rgba(255,255,255,0.4)_inset,0_8px_24px_-12px_rgba(255,255,255,0.35)]",
+    "bg-brand-500 text-white border-b-2 border-brand-700 shadow-raised hover:bg-brand-600 active:bg-brand-600 active:border-b active:translate-y-px focus-visible:shadow-ring",
   secondary:
-    "bg-surface-2 text-ink-100 border border-hairline-strong hover:border-ink-300 active:translate-y-[1px]",
+    "bg-white text-zinc-800 border border-zinc-200 border-b-2 border-b-zinc-300 shadow-raised hover:bg-zinc-50 hover:border-zinc-300 active:translate-y-px active:border-b focus-visible:shadow-ring",
   ghost:
-    "text-ink-300 hover:text-ink-100",
+    "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 active:bg-zinc-200/70",
+  subtle:
+    "bg-brand-50 text-brand-700 border border-brand-100 hover:bg-brand-100 active:bg-brand-200/70",
+  danger:
+    "bg-danger-600 text-white border-b-2 border-danger-800 shadow-raised hover:bg-danger-700 active:bg-danger-700 active:border-b active:translate-y-px focus-visible:shadow-ring",
+};
+
+const sizes: Record<Size, string> = {
+  sm: "h-8 px-3 text-[13px] gap-1.5 rounded-md",
+  md: "h-10 px-4 text-sm gap-2 rounded-md",
+  lg: "h-12 px-6 text-[15px] gap-2 rounded-lg",
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium tracking-tight transition-all duration-150";
+  "inline-flex items-center justify-center font-medium select-none whitespace-nowrap transition-all duration-150 ease-out-expo outline-none";
 
 export function Button({
   to,
   children,
   variant = "primary",
+  size = "md",
   className = "",
 }: {
   to: string;
   children: ReactNode;
   variant?: Variant;
+  size?: Size;
   className?: string;
 }) {
-  const isExternal = to.startsWith("http") || to.startsWith("mailto:") || to.startsWith("#");
-  const classes = `${base} ${styles[variant]} ${className}`;
+  const isExternal =
+    to.startsWith("http") || to.startsWith("mailto:") || to.startsWith("#");
+  const classes = cn(base, variants[variant], sizes[size], className);
   if (isExternal) {
     return (
       <a href={to} className={classes}>
