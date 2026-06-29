@@ -8,6 +8,8 @@ import { UseCaseNew } from "./pages/UseCaseNew";
 import { UseCaseExisting } from "./pages/UseCaseExisting";
 import { Team } from "./pages/Team";
 import { Contact } from "./pages/Contact";
+import { Docs } from "./pages/Docs";
+import { DocFeatureGuide } from "./pages/DocFeatureGuide";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { NoiseLayer } from "./components/NoiseLayer";
 
@@ -27,6 +29,8 @@ function App() {
             <Route path="/use-cases/existing-codebase" element={<UseCaseExisting />} />
             <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/docs" element={<Docs />} />
+            <Route path="/docs/how-to-write-an-ideal-feature" element={<DocFeatureGuide />} />
           </Routes>
         </main>
         <Footer />

@@ -88,7 +88,13 @@ export function Footer() {
         </div>
         <div className="mt-16 pt-6 border-t border-hairline flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-zinc-400 font-mono">
           <div>&copy; {new Date().getFullYear()} 10x3 &middot; All rights reserved</div>
-          <div>Built on the stack we ship</div>
+          <div className="flex items-center gap-2">
+            <Link to="/docs" className="text-zinc-400 hover:text-zinc-600 transition-colors">
+              Docs
+            </Link>
+            <span aria-hidden>&middot;</span>
+            <span>Built on the stack we ship</span>
+          </div>
         </div>
       </Container>
     </footer>
