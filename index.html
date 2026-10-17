@@ -320,8 +320,8 @@
             <div class="step-body">
               <div class="cal-wrap" id="calWrap">
                 <div class="cal-locked" id="calLocked">
-                  <div id="calMsg">Pick what you're building and describe your idea first.</div>
-                  <button type="button" class="btn" id="showCal" disabled>Show available times →</button>
+                  <div id="calMsg">Tip: fill in steps 1 and 2 so we can prepare before we meet.</div>
+                  <button type="button" class="btn" id="showCal">Show available times →</button>
                 </div>
                 <div id="calendly" hidden></div>
               </div>
@@ -398,11 +398,9 @@
         s1.classList.toggle('done', !!a.type);
         s2.classList.toggle('done', a.idea.length >= 10);
         const ready = a.type && a.idea.length >= 10;
-        showCal.disabled = !ready;
         calMsg.textContent = ready
           ? 'All set. Pick a time that works for you.'
-          : !a.type ? 'Pick what you’re building and describe your idea first.'
-          : 'Add a sentence or two about your idea first.';
+          : 'Tip: fill in steps 1 and 2 so we can prepare before we meet.';
       };
       form.addEventListener('input', update);
       form.addEventListener('change', update);
