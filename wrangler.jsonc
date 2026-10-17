@@ -1,8 +1,21 @@
 {
   "$schema": "https://unpkg.com/wrangler/config-schema.json",
   "name": "landing",
+  "main": "worker.js",
   "compatibility_date": "2025-09-01",
   "assets": {
-    "directory": "./"
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "landing-bookings", "database_id": "28afdeae-3e25-48fe-aae0-5ef1847e1ddf" }
+  ],
+  "send_email": [
+    { "name": "MAIL", "destination_address": "naidiuk.peter@gmail.com" }
+  ],
+  "vars": {
+    "MAIL_FROM": "bookings@10x3.dev",
+    "MAIL_TO": "naidiuk.peter@gmail.com"
   }
 }
