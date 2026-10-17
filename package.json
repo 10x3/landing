@@ -1,0 +1,8 @@
+{
+  "name": "landing",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Static site: nothing to build'",
+    "deploy": "wrangler deploy"
+  }
+}
