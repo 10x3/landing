@@ -5,14 +5,18 @@ const SLOT_MINUTES = 30;
 const MIN_NOTICE_HOURS = 4;
 const HORIZON_DAYS = 14;
 const MAX_PER_IP_PER_DAY = 5;
+const MAX_REQUESTS_PER_IP_PER_DAY = 10;
 
 const PRODUCTS = ['Chatbot', 'Web app', 'Mobile app', 'Data pipeline', 'Custom'];
+const REQUEST_KINDS = { demo: 'Demo access', build: 'Build request' };
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
     if (pathname === '/api/slots' && request.method === 'GET') return takenSlots(env);
     if (pathname === '/api/book' && request.method === 'POST') return book(request, env);
+    if (pathname === '/api/request' && request.method === 'POST') return submitRequest(request, env);
     if (pathname.startsWith('/api/')) return json({ error: 'Not found' }, 404);
     return env.ASSETS.fetch(request);
   },
@@ -49,7 +53,7 @@ async function book(request, env) {
   };
 
   if (!b.name) return json({ error: 'Please add your name.' }, 400);
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)) return json({ error: 'Please add a valid email.' }, 400);
+  if (!EMAIL_RE.test(b.email)) return json({ error: 'Please add a valid email.' }, 400);
   if (!PRODUCTS.includes(b.product)) b.product = 'Not chosen';
 
   const slotError = checkSlot(b.slot);
@@ -85,6 +89,52 @@ async function book(request, env) {
   return json({ ok: true, slot: b.slot });
 }
 
+// Demo-access and build requests: saved to D1, then emailed to the owner.
+async function submitRequest(request, env) {
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: 'Invalid request.' }, 400);
+  }
+  if (body.website) return json({ ok: true });
+
+  const r = {
+    kind: clean(body.kind, 20),
+    name: clean(body.name, 120),
+    email: clean(body.email, 200).toLowerCase(),
+    message: clean(body.message, 3000, true),
+  };
+  if (!REQUEST_KINDS[r.kind]) return json({ error: 'Invalid request.' }, 400);
+  if (!EMAIL_RE.test(r.email)) return json({ error: 'Please enter a valid email address.' }, 400);
+  if (r.kind === 'build' && r.message.length < 10) return json({ error: 'Please tell us a little more about what you need.' }, 400);
+
+  const ip = request.headers.get('CF-Connecting-IP') || '';
+  const dayAgo = new Date(Date.now() - 864e5).toISOString();
+  const recent = await env.DB
+    .prepare('SELECT COUNT(*) AS n FROM requests WHERE ip = ? AND created_at >= ?')
+    .bind(ip, dayAgo)
+    .first('n');
+  if (recent >= MAX_REQUESTS_PER_IP_PER_DAY) return json({ error: 'Too many requests from this network today. Please try again tomorrow.' }, 429);
+
+  await env.DB
+    .prepare('INSERT INTO requests (kind, name, email, message, ip) VALUES (?, ?, ?, ?, ?)')
+    .bind(r.kind, r.name, r.email, r.message, ip)
+    .run();
+
+  const who = r.name ? `${r.name} <${r.email}>` : r.email;
+  const text = r.kind === 'demo'
+    ? [`Demo access requested by ${who}.`, '', 'Send them their demo environment access.', 'Reply to this email to answer them directly.'].join('\n')
+    : [`Build request from ${who}`, '', 'Request:', r.message, '', 'Reply to this email to answer them directly.'].join('\n');
+  try {
+    await sendMail(env, { subject: `${REQUEST_KINDS[r.kind]}: ${who}`, text, replyName: r.name, replyEmail: r.email });
+  } catch (err) {
+    console.error('Request email failed', err);
+  }
+
+  return json({ ok: true });
+}
+
 function checkSlot(value) {
   const t = Date.parse(value);
   if (Number.isNaN(t)) return 'Please pick a time.';
@@ -117,10 +167,14 @@ async function notify(env, b) {
   ].filter((l) => l !== null).join('\n');
 
   const subject = `Booking: ${b.product} · ${b.name} · ${when.toISOString().slice(0, 16).replace('T', ' ')} UTC`;
+  await sendMail(env, { subject, text, replyName: b.name, replyEmail: b.email });
+}
+
+async function sendMail(env, { subject, text, replyName, replyEmail }) {
   const raw = [
-    `From: 10x3 Bookings <${env.MAIL_FROM}>`,
+    `From: 10x3 Website <${env.MAIL_FROM}>`,
     `To: <${env.MAIL_TO}>`,
-    `Reply-To: ${encodeWord(b.name)} <${b.email}>`,
+    `Reply-To: ${replyName ? `${encodeWord(replyName)} ` : ''}<${replyEmail}>`,
     `Subject: ${encodeWord(subject)}`,
     `Date: ${new Date().toUTCString()}`,
     `Message-ID: <${crypto.randomUUID()}@${env.MAIL_FROM.split('@')[1]}>`,

@@ -31,6 +31,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body {
       margin: 0; background: var(--paper); color: var(--ink);
@@ -73,7 +74,11 @@
     .hero h1 { margin: 18px 0 20px; }
     .lede { font-size: 19px; color: var(--ink-2); max-width: 32em; margin: 0; }
     .hero-cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-    .hero-cta small { color: var(--ink-3); font-size: 14px; }
+    .hero-note { margin: 14px 0 0; color: var(--ink-3); font-size: 14px; }
+    .nav-right { display: flex; align-items: center; gap: 22px; }
+    .nav-link { font-size: 14px; color: var(--ink-2); text-decoration: none; }
+    .nav-link:hover { color: var(--ink); }
+    @media (max-width: 560px) { .nav-link { display: none; } }
     @media (max-width: 900px) { .hero { padding: 24px 0 72px; } .hero-grid { grid-template-columns: 1fr; gap: 48px; } }
 
     .offer {
@@ -193,6 +198,55 @@
     .booked .when { font-size: 18px; color: var(--ink); font-weight: 600; margin-top: 16px; }
     .booked .btn { margin-top: 24px; }
 
+    /* demo + build-for-you */
+    .demo { padding: 96px 0; background: var(--brand-700); color: #dfe9e3; position: relative; overflow: hidden; }
+    .demo::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(700px 360px at 90% 0%, rgba(137,178,158,.20), transparent 60%);
+    }
+    .demo .wrap { position: relative; }
+    .demo .label { color: #9cc2ae; }
+    .demo h2 { color: #fff; margin-top: 12px; }
+    .demo .lead { font-size: 17px; color: #b9cdc2; margin: 16px 0 0; max-width: 30em; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .ticks { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
+    .ticks li { display: flex; gap: 10px; align-items: flex-start; }
+    .ticks li::before {
+      content: ""; flex: none; width: 18px; height: 18px; margin-top: 2px; border-radius: 50%;
+      background: var(--brand-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5.5 9.3l2.3 2.3 4.7-5' fill='none' stroke='%232f5d49' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;
+    }
+    .demo .ticks li { color: #dfe9e3; }
+    .demo .ticks li::before { background-color: rgba(255,255,255,.92); }
+    .form-card { background: var(--card); color: var(--ink); border-radius: var(--r-lg); padding: 28px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.45); }
+    .form-card h3 { font-size: 19px; }
+    .form-card .sub { color: var(--ink-3); font-size: 14.5px; margin: 4px 0 20px; }
+    .form-card label { display: block; font-weight: 600; font-size: 14.5px; margin-bottom: 8px; }
+    .form-card label span { color: var(--ink-3); font-weight: 400; }
+    .form-card .row { margin-bottom: 16px; }
+    .form-card .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-card .btn { width: 100%; margin-top: 4px; }
+    .form-card .fine { font-size: 13px; color: var(--ink-3); margin: 12px 0 0; display: flex; gap: 8px; align-items: flex-start; }
+    .form-card .fine svg { flex: none; margin-top: 2px; }
+    .inline-form { display: flex; gap: 10px; }
+    .inline-form input.text { flex: 1; min-width: 0; }
+    .inline-form .btn { width: auto; margin-top: 0; }
+    .sent { display: flex; gap: 14px; align-items: flex-start; }
+    .sent-ico { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; }
+    .sent h3 { font-size: 18px; }
+    .sent p { margin: 4px 0 0; color: var(--ink-2); font-size: 15px; }
+    .custom { padding: 96px 0; border-top: 1px solid var(--line); }
+    .custom h2 { margin-top: 12px; }
+    .custom .lead { font-size: 17px; color: var(--ink-2); margin: 16px 0 0; max-width: 30em; }
+    .custom .ticks li { color: var(--ink-2); }
+    .custom .form-card { border: 1px solid var(--line); box-shadow: 0 24px 48px -32px rgba(24,32,28,.35); }
+    .custom textarea { min-height: 140px; }
+    @media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 40px; } }
+    @media (max-width: 520px) {
+      .inline-form { flex-direction: column; } .inline-form .btn { width: 100%; }
+      .form-card .two { grid-template-columns: 1fr; gap: 0; } .form-card .two .row { margin-bottom: 16px; }
+      .form-card { padding: 22px; }
+    }
+
     /* faq */
     .faq { padding: 96px 0; border-top: 1px solid var(--line); }
     .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 56px; }
@@ -222,7 +276,11 @@
         <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="1" y="1" width="26" height="26" rx="8" fill="#2f5d49"/><text x="11" y="20" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="700" fill="#fff" letter-spacing="-0.04em">10</text><text x="21" y="12" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="9" font-weight="700" fill="#d99a2b">3</text></svg>
         <span>10x<sup>3</sup></span>
       </a>
-      <a class="btn" href="#book">Book a start</a>
+      <div class="nav-right">
+        <a class="nav-link" href="#demo">Try the demo</a>
+        <a class="nav-link" href="#custom">Build it for me</a>
+        <a class="btn" href="#book">Get started</a>
+      </div>
     </div>
   </nav>
 
@@ -231,11 +289,12 @@
       <div>
         <div class="label">For non-technical founders</div>
         <h1>Build your product with AI. <span class="accent">A senior engineer keeps it on track.</span></h1>
-        <p class="lede">You describe what you want in plain words and AI builds it. A senior engineer controls the environment and steps in whenever it matters. Book a start now, and you're building your first feature in 4 hours.</p>
+        <p class="lede">You describe what you want in plain words and AI builds it. A senior engineer controls the environment and steps in whenever it matters. Book a kickoff today, and you'll be building your first feature within 4 hours.</p>
         <div class="hero-cta">
           <a class="btn" href="#book">Start building →</a>
-          <small>Takes 2 minutes. No payment now.</small>
+          <a class="btn btn-ghost" href="#demo">Try the free demo</a>
         </div>
+        <p class="hero-note">Booking takes 2 minutes. No payment upfront.</p>
       </div>
 
       <aside class="offer" aria-label="Pricing">
@@ -262,8 +321,8 @@
   <section class="book" id="book">
     <div class="wrap">
       <div class="book-head">
-        <div class="label">Book a start</div>
-        <h2>Three quick steps. We do the rest before we meet.</h2>
+        <div class="label">Get started</div>
+        <h2>Three quick steps. We prepare everything before we meet.</h2>
         <p>We use your answers to plan the architecture and set up your environment ahead of the call, so you can start building the moment we meet.</p>
       </div>
 
@@ -365,7 +424,7 @@
               <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
 
               <div class="submit-row">
-                <button type="submit" class="btn" id="submitBtn">Book my start →</button>
+                <button type="submit" class="btn" id="submitBtn">Book my kickoff →</button>
                 <span class="picked" id="picked">No time picked yet.</span>
               </div>
               <p class="form-err" id="formErr" role="alert"></p>
@@ -384,6 +443,82 @@
     </div>
   </section>
 
+  <section class="demo" id="demo">
+    <div class="wrap split">
+      <div>
+        <div class="label">Free demo</div>
+        <h2>See how it works before you buy.</h2>
+        <p class="lead">Get access to our demo environment and build something small yourself. Describe a feature in plain words and watch AI turn it into working software.</p>
+        <ul class="ticks">
+          <li>Hands-on, not a video or a sales pitch</li>
+          <li>No call, no card details</li>
+          <li>Access by email within one business day</li>
+        </ul>
+      </div>
+      <div class="form-card">
+        <form class="lead-form" data-kind="demo" novalidate>
+          <h3>Get demo access</h3>
+          <p class="sub">Enter your email and we'll send you a login to the demo environment.</p>
+          <label for="demoEmail">Email</label>
+          <div class="inline-form">
+            <input class="text" id="demoEmail" name="email" type="email" autocomplete="email" maxlength="200" placeholder="you@company.com" required>
+            <button type="submit" class="btn">Send me access</button>
+          </div>
+          <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+          <p class="form-err" role="alert"></p>
+          <p class="fine"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>We'll only use your email to send your demo access. No newsletters.</p>
+        </form>
+        <div class="sent" hidden>
+          <div class="sent-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <div><h3>Check your inbox.</h3><p>We'll send your demo access to <b class="sent-email"></b> within one business day.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="custom" id="custom">
+    <div class="wrap split">
+      <div>
+        <div class="label">Done for you</div>
+        <h2>Need something special? We'll build it for you.</h2>
+        <p class="lead">Have a unique idea, or would you rather hand the whole product to our team? Tell us what you need, and we'll come back with an approach, a timeline and a quote.</p>
+        <ul class="ticks">
+          <li>Custom products and integrations</li>
+          <li>Full builds, from idea to launch</li>
+          <li>Extending or fixing an existing product</li>
+        </ul>
+      </div>
+      <div class="form-card">
+        <form class="lead-form" data-kind="build" novalidate>
+          <h3>Send us your request</h3>
+          <p class="sub">A few sentences are enough to get started.</p>
+          <div class="row">
+            <label for="buildMsg">What do you need?</label>
+            <textarea id="buildMsg" name="message" maxlength="3000" required placeholder="e.g. A customer portal for our cleaning business: online booking, payments, and a schedule for our staff app."></textarea>
+          </div>
+          <div class="two">
+            <div class="row">
+              <label for="buildEmail">Email</label>
+              <input class="text" id="buildEmail" name="email" type="email" autocomplete="email" maxlength="200" placeholder="you@company.com" required>
+            </div>
+            <div class="row">
+              <label for="buildName">Name <span>(optional)</span></label>
+              <input class="text" id="buildName" name="name" autocomplete="name" maxlength="120">
+            </div>
+          </div>
+          <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+          <button type="submit" class="btn">Send request →</button>
+          <p class="form-err" role="alert"></p>
+          <p class="fine"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Share only what you're comfortable with. We're happy to sign an NDA before going further.</p>
+        </form>
+        <div class="sent" hidden>
+          <div class="sent-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <div><h3>Request received.</h3><p>Thank you. We'll reply to <b class="sent-email"></b> with next steps.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="faq" id="faq">
     <div class="wrap faq-grid">
       <div>
@@ -394,6 +529,10 @@
         <details>
           <summary>What do I actually get for $500?</summary>
           <p>A ready-to-use dev environment where AI builds what you describe, plus 10 hours a month of a senior engineer who controls that environment, plans the architecture and steps in when something needs a human.</p>
+        </details>
+        <details>
+          <summary>Can I try it before I pay?</summary>
+          <p>Yes. <a href="#demo">Request free demo access</a> and build something small yourself in our demo environment. No call or card needed.</p>
         </details>
         <details>
           <summary>What happens when the 10 hours run out?</summary>
@@ -569,8 +708,36 @@
         } catch {
           err.textContent = 'Couldn\u2019t reach us. Check your connection and try again.';
         } finally {
-          submitBtn.disabled = false; submitBtn.textContent = 'Book my start →';
+          submitBtn.disabled = false; submitBtn.textContent = 'Book my kickoff →';
         }
+      });
+
+      // ---- demo access + build requests ----
+      document.querySelectorAll('.lead-form').forEach((f) => {
+        const btn = f.querySelector('button[type="submit"]'), label = btn.textContent;
+        const ferr = f.querySelector('.form-err');
+        f.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          ferr.textContent = '';
+          const data = Object.fromEntries(new FormData(f));
+          data.kind = f.dataset.kind;
+          if (data.kind === 'build' && (data.message || '').trim().length < 10) { ferr.textContent = 'Please tell us a little more about what you need.'; f.message.focus(); return; }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((data.email || '').trim())) { ferr.textContent = 'Please enter a valid email address.'; f.email.focus(); return; }
+
+          btn.disabled = true; btn.textContent = 'Sending…';
+          try {
+            const r = await fetch('/api/request', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+            const res = await r.json().catch(() => ({}));
+            if (!r.ok) { ferr.textContent = res.error || 'Something went wrong. Please try again.'; return; }
+            const sent = f.nextElementSibling;
+            sent.querySelector('.sent-email').textContent = data.email.trim();
+            f.hidden = true; sent.hidden = false;
+          } catch {
+            ferr.textContent = 'Couldn\u2019t reach us. Check your connection and try again.';
+          } finally {
+            btn.disabled = false; btn.textContent = label;
+          }
+        });
       });
 
       update();

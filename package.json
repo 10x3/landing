@@ -6,6 +6,7 @@
     "dev": "wrangler d1 execute landing-bookings --local --file=schema.sql && wrangler dev",
     "db:init": "wrangler d1 execute landing-bookings --remote --file=schema.sql",
     "bookings": "wrangler d1 execute landing-bookings --remote --command \"SELECT slot, name, email, product, users FROM bookings ORDER BY slot DESC LIMIT 20\"",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "requests": "wrangler d1 execute landing-bookings --remote --command \"SELECT created_at, kind, name, email, substr(message, 1, 80) AS message FROM requests ORDER BY id DESC LIMIT 20\""
   }
 }
